@@ -2,26 +2,106 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Palette */
+  --primary_color: #ffa100;
+  --primary_bg_color: #12141b;
+  --secondary_bg_color: #16171f;
+  --white_color: #fff;
+  --body_text_color: #9a9ea7;
+  --primary_stroke: rgba(49, 50, 62, 1);
+  --title_gradient: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  --base_bg: linear-gradient(
+    117.54deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  --btn_base: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  --stroke_btn: linear-gradient(90deg, #31323e 0%, rgba(49, 50, 62, 0) 100%);
+  --stroke:rgba(49, 50, 62, 1);
+  /* Fonts sizes */
+  --big_text: 6rem;
+  --headline_h1: 4.375rem;
+  --headline_h2: 4rem;
+  --headline_h3: 2rem;
+  --headline_h4: 1.5rem;
+  --headline_h5: 1.25rem;
+  --p: 1rem;
+  --p2: 0.875rem;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Transitions */
+  --base: 0.3s;
 }
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--primary_bg_color);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.bordered-button {
+  z-index: 44;
+}
+.bordered-button:hover {
+  background: linear-gradient(
+    117.54deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  .button-animated {
+    background: var(--primary_color);
+    svg {
+      path {
+        fill: #000;
+      }
+    }
   }
+}
+.active_svg {
+  path {
+    fill:var(--primary_color)
+  }
+}
+
+
+.no-hover:hover {
+  background-color: inherit !important; /* Забороняє змінювати фон при ховері */
+}
+.colums-c-2 {
+  column-count: 2;
+}
+.colums-c-1 {
+  column-count: 1;
+}
+.colums-c-gap-16 {
+  column-gap: 16px; 
+}
+.border-custom-bottom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    padding: 1px; /* Товщина бордера */
+    background: linear-gradient(2deg, rgba(49, 50, 62, 1), rgba(60, 74, 83, 0));
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 11;
+
+
 }

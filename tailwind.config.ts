@@ -1,10 +1,13 @@
 import type { Config } from "tailwindcss";
+import {nextui} from "@nextui-org/react";
+
 
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
@@ -13,7 +16,10 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
     },
+    backgroundImage: {
+      "custom": "linear-gradient(180deg, #12141B 0%, #16171F 100%)",
+    },
   },
-  plugins: [],
+  plugins: [nextui()]
 };
 export default config;

@@ -1,0 +1,53 @@
+.navbar_wrapper {
+    z-index: 999;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 16px 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+
+    .logo_wrapper {
+        // margin-right: auto;
+    }
+    .menu_wrapper {
+
+
+        ul {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            li {
+                a {
+                    font-size: var(--p);
+                    color: var(--white_color);
+                    font-weight: 400;
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    transition: var(--base);
+                    svg {
+                        path {
+                            transition: 0.3s;
+                        }
+                    }
+                    &:hover {
+                        color: var(--primary_color);
+                        svg path {
+                            fill: var(--primary_color);
+                        }
+                    }
+                }
+                .active {
+                    color: var(--primary_color);
+                    fill: var(--primary_color);
+                }
+                
+            }
+        }
+    }
+    
+}
