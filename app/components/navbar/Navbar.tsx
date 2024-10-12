@@ -17,24 +17,18 @@ import Localization from "../localization/Localization";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [hoverState, setHoverState] = useState<boolean>(false);
-  const [enteredMenu, setEnteredMenu] = useState<boolean>(false);
-  const [dropDownState, setDropDownState] = useState<boolean>(false);
   const timeoutId = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseEnter = () => {
     if (timeoutId.current) {
       clearTimeout(timeoutId.current);
     }
-    setHoverState(true);
     setIsOpen(true);
   };
 
   const handleMouseLeave = () => {
     timeoutId.current = setTimeout(() => {
-      setHoverState(false);
       setIsOpen(false);
-      setEnteredMenu(false);
     }, 200); // 200ms delay to allow time to move to dropdown
   };
 
@@ -42,13 +36,18 @@ const Navbar = () => {
     if (timeoutId.current) {
       clearTimeout(timeoutId.current);
     }
-    setHoverState(true);
     setIsOpen(true);
   };
   
   return (
     <>
+  
+
       <div className={styles.navbar_wrapper}>
+      <div className="conteiner">
+        <div className={styles.content}>
+
+ 
         <div className={styles.logo_wrapper}>
           <Logo />
         </div>
@@ -63,7 +62,6 @@ const Navbar = () => {
                 base: "flex-row ",
                 content: "bg-custom p-[32px] z-[999999999] pb-[16px] mt-[22px]",
               }}
-              onOpenChange={(state) => setDropDownState(state)}
             >
               <DropdownTrigger  className="aria-expanded:opacity-100" >
                 <li>
@@ -109,6 +107,8 @@ const Navbar = () => {
           </ul>
         </div>
        <Localization />
+      </div>
+      </div>
       </div>
     </>
   );

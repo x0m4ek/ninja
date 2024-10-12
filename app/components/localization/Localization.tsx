@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import styles from "./Localization.module.scss";
 import UkFlag from "@/app/images/uk.png";
 import BrFlag from "@/app/images/br.png";
@@ -7,9 +7,8 @@ import RusFlag from "@/app/images/rus.png";
 import Image from 'next/image';
 import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/react';
 
-type Props = {}
-[]
-const Localization = ({}) => {
+
+const Localization = () => {
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
 

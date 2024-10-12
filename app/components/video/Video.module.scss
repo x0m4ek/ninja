@@ -15,7 +15,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: -1;
+        z-index: 1;
         border-radius: 32px;
     }
     &::after {
@@ -25,7 +25,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: -1;
+        z-index: 1;
         border-radius: 32px;
       
         background: rgb(23,24,32);

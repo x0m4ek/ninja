@@ -59,8 +59,7 @@ const ProjectsBlock = () => {
   return (
     <>
     <div className={styles.projects_wrapper}>
-        
-
+  
     <div className={styles.projects_list}>
       {projects.map((project,index) => (
         <>

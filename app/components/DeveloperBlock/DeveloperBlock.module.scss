@@ -1,0 +1,24 @@
+.wrapper {
+    border-radius: 16px;
+    position: relative;
+    background: linear-gradient(117.54deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 100%);
+    padding: 48px;
+    min-width: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+
+    position: relative;
+    img {
+        z-index: 2;
+        width: 285px;
+        height: 300px;
+    }
+    p {
+        z-index: 2;
+        font-weight: 400;
+        font-size: var(--p);
+        color: rgba(255, 255, 255, 0.5);
+    }
+}

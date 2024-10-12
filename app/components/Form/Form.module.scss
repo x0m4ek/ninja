@@ -1,0 +1,38 @@
+.form {
+    background: linear-gradient(117.54deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 100%);
+    padding: 64px;
+    border-radius: 32px;
+    z-index: 99;
+    position: relative;
+    h3 {
+        color: #fff;
+        font-size: var(--headline_h3);
+        font-weight: 500;
+    }
+    form {
+
+        .inputs {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            display: flex;
+            gap: 16px;
+            flex-direction: column;
+            input {
+                padding: 24px;
+                border-radius: 16px;
+                border: 1px solid var(--stroke);
+                outline: none;
+                background: transparent;
+
+                color: #FFFFFF80;
+                ;
+            }
+  
+            
+        }
+        .button {
+
+            width: fit-content;
+        }
+    }
+}

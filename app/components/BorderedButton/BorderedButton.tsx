@@ -1,3 +1,4 @@
+'use client'
 import React, { FC } from 'react';
 import styles from "./BorderedButton.module.scss";
 import ArrowUrl from '../arrow/ArrowUrl';

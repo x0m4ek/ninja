@@ -1,0 +1,15 @@
+.wrapper {
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    .filters {
+        display: flex;
+        gap: 16px;
+    }
+    .filtered_products {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+}

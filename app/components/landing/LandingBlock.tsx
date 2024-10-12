@@ -1,19 +1,21 @@
-import React from 'react';
+import React from "react";
 import styles from "./LandingBlock.module.scss";
-import Video from '../video/Video';
-import ProjectsBlock from '../projectsBlock/ProjectsBlock';
-
-
+import Video from "../video/Video";
+import ProjectsBlock from "../projectsBlock/ProjectsBlock";
 
 const LandingBlock = () => {
   return (
     <>
-    <div className={styles.landing_wrapper}>
-    <Video />
-   <ProjectsBlock /> 
-    </div>
-    </>
-  )
-}
+    <div className="conteiner">
 
-export default LandingBlock
+
+      <div className={styles.landing_wrapper}>
+        <Video />
+        <ProjectsBlock />
+      </div>
+      </div>
+    </>
+  );
+};
+
+export default LandingBlock;

@@ -1,0 +1,29 @@
+.wrapper {
+    position: relative;
+    padding: 112px 0px;
+    background: rgba(22, 23, 31, 1);
+    overflow: hidden;
+    .circle {
+        position: absolute;
+        &:first-child {
+            top: -210px;
+            right:-210px;
+        }
+        &:nth-child(2) {
+            bottom: -210px;
+            left: -210px;
+        }
+    }
+    .content {
+        font-size: var(--headline_h2);
+        color: var(--white_color);
+        line-height: 70px;
+        p {
+            font-size: inherit;
+            background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.2) 100%);
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}
