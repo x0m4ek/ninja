@@ -1,0 +1,86 @@
+.wrapper {
+    padding: 122px 0px;
+    .text{ 
+        display: flex;
+        justify-content: space-between;
+        h3 {
+            font-size: var(--headline_h2);
+            background: -webkit-linear-gradient(#eee, #333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 70px;
+        }
+        p {
+            width: 564px;
+            line-height: 24px;
+            font-size: var(--p);
+            color: var(--body_text_color);
+            font-weight: 400;
+        }
+    }
+    .images {
+        overflow-x: auto;
+        margin-top: 64px;
+        display: flex;
+        gap: 16px;
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+    
+    
+        &::-webkit-scrollbar { 
+            display: none;  /* Safari and Chrome */
+            z-index: 45;
+        }
+        .image_wrapper {
+
+    
+        .image_conteiner {
+            width: 500px;
+            height: 600px;
+            position: relative;
+            position: relative;
+            padding: 32px;
+            overflow: hidden; // Щоб контент не виходив за межі контейнера
+            .image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 32px;
+                position: absolute; // Абсолютне позиціонування
+                top: 0;
+                left: 0;
+                pointer-events: none;
+            }
+            .text {
+           
+                z-index: 3;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                justify-content: flex-end;
+                height: 100%;
+    
+                p {
+                    font-size: var(--headline_h3);
+                    color: var(--primary_color);
+                    font-weight: 500;
+                    z-index: 3;
+                }
+                span {
+                    font-weight: 500;
+                    color: #fff;
+                    font-size: var(--headline_h5);
+                    z-index: 3;
+                }
+            }
+        }
+    }
+   
+    }
+    .nav{ 
+        margin-top: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

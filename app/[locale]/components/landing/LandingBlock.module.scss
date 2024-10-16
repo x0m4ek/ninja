@@ -1,0 +1,18 @@
+.landing_wrapper {
+    display: flex;
+    gap: 16px;
+    padding: 90px 0px;
+    min-height: 740px;
+    max-height: 970px;
+}
+
+@media screen and (max-width:1024px) {
+    .landing_wrapper {
+        max-height: none;
+        flex-direction:  column;
+        padding-bottom: 0px;
+    }
+}
+@media screen and (max-width:475px) {
+    
+}

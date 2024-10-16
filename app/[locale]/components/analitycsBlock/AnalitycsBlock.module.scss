@@ -1,0 +1,82 @@
+.wrapper {
+    padding: 112px 0px;
+    .text {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        h3 {
+            font-size: var(--headline_h2);
+            background: -webkit-linear-gradient(#eee, #333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 70px;
+        }
+        p {
+            width: 448px;
+            line-height: 24px;
+            font-size: var(--p);
+            color: var(--body_text_color);
+            font-weight: 400;
+            span {
+                color: var(--primary_color);
+            }
+        }
+    }
+    .blocks {
+        margin-top: 64px;
+        display: flex;
+        gap: 16px;
+        .block {
+            padding: 48px;
+            background: var(--secondary_bg_color);
+            border-radius: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 112px;
+            justify-content: space-between;
+            .top_items{ 
+                display: flex;
+             
+                justify-content: space-between;
+                align-items: flex-start;
+                img {
+                    width: 100px;
+                    height: 100px;
+
+                }
+            }
+            .text_items {
+                h5 {
+                    color: var(--primary_color);
+                    font-weight: 500;
+                    font-size: var(--headline_h3);
+                }
+                h6 {
+                    margin-top: 16px;
+                    color: var(--primary_color);
+                    font-weight: 500;
+                    font-size: var(--headline_h5);
+                }
+                p {
+                    margin:32px 0px;
+                    color: #fff;
+                    font-size: var(--p);
+                    line-height: 24px;
+
+                }
+                span {
+        
+                    color: var(--body_text_color);
+                    font-size: var(--p);
+                    line-height: 24px;
+                }
+            }
+        }
+    }
+    .slider {
+        margin-top: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
