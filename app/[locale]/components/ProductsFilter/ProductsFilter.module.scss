@@ -13,3 +13,11 @@
         gap: 24px;
     }
 }
+@media screen and (max-width:768px) {
+    .wrapper {
+        .filters {
+            flex-wrap: wrap;
+        }
+    
+    }
+} 

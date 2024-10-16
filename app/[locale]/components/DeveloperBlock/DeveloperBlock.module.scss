@@ -22,3 +22,14 @@
         color: rgba(255, 255, 255, 0.5);
     }
 }
+
+@media screen and (max-width:768px) {
+    .wrapper {
+        padding: 32px;
+        min-width: 310px;
+        img {
+            width: 250px;
+            height: auto;
+        }
+    }
+}

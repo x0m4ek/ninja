@@ -11,21 +11,26 @@
         height: fit-content;
         .text_data {
             margin-bottom: 258px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
             h2 {
                 font-size: var(--headline_h2);
                 color: #fff;
                 line-height: 70px;
                 p {
+        
                     color: inherit;
                     font-size: inherit;
                     background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.2) 100%);
-                    line-height: 70px;
+                    line-height: var(--headline_h2_line);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                 }
             }
             p {
                 line-height: 24px;
+           
                 color: var(--body_text_color);
                 font-size: var(--p);
             }
@@ -99,7 +104,7 @@
                     font-size:var(--headline_h2) ;
         
                     background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.2) 100%);
-                    line-height: 70px;
+                    line-height:var(--headline_h2_line);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                 }
@@ -137,4 +142,51 @@
         }
       
     }
+}
+
+@media screen and (max-width:1024px) {
+    .wrapper {
+        flex-direction: column;
+        .metadata {
+            max-width: none;
+            width: 100%;
+            .text_data {
+                margin-bottom: 32px;
+                h2 {
+                    line-height: 44px;
+                }
+            }
+        }
+        .blocks {
+            .block {
+                min-width: fit-content;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width:768px) {
+ .wrapper {
+    .metadata {
+        padding: 24px;
+    }
+ }   
+ .command {
+    .content {
+        .nav {
+            flex-direction: column;
+            align-items: flex-start;
+            .text {
+                gap: 16px;
+            }
+            .navigation {
+                margin-top: 64px;
+                justify-content: space-between;
+                flex: 1;
+                width: 100%;
+            }
+        }
+    }
+ }
 }

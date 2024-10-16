@@ -42,6 +42,8 @@
   --p: 1rem;
   --p2: 0.875rem;
 
+  --headline_h2_line:70px;
+
   /* Transitions */
   --base: 0.3s;
 }
@@ -157,10 +159,10 @@ body {
 }
 @media screen and (max-width:768px) {
   .conteiner {
-    width: calc(100% - 16px);
+    width: calc(100% - 32px);
   }
   .conteiner_header {
-    width: calc(100% - 32px);
+    width: calc(100% - 16px);
   }
 }
 
@@ -170,4 +172,11 @@ body {
   width:300px;
   height: 300px;
   filter: blur(420px);
+}
+
+@media screen and (max-width:768px) {
+  :root {
+    --headline_h2: 40px;
+    --headline_h2_line:44px;
+  }
 }

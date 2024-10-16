@@ -44,7 +44,7 @@ const Navbar = () => {
   
 
       <div className={styles.navbar_wrapper}>
-      <div className="conteiner conteiner_header">
+      <div className="conteiner">
         <div className={styles.content}>
 
  

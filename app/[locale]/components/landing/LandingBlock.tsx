@@ -6,7 +6,7 @@ import ProjectsBlock from "../projectsBlock/ProjectsBlock";
 const LandingBlock = () => {
   return (
     <>
-    <div className="conteiner">
+    <div className="conteiner  conteiner_header">
 
 
       <div className={styles.landing_wrapper}>

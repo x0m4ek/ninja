@@ -130,7 +130,7 @@ const CooperationBlock = () => {
               </div>
               <div className={styles.button}>
                 <BorderedButton
-                  text="Отримати Whitelabel рішення"
+                  text="Отримати Whitelabel"
                   onClick={() => console.log("s")}
                 />
               </div>
