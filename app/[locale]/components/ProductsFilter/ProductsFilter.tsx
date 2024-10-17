@@ -9,9 +9,6 @@ import Hover3 from "@/app/[locale]/images/hover-3.png";
 import Hover4 from "@/app/[locale]/images/hover-4.png";
 import Hover5 from "@/app/[locale]/images/hover-5.png";
 import Hover6 from "@/app/[locale]/images/hover-6.png";
-import Product1 from "@/app/[locale]/images/product-1.png";
-import Product2 from "@/app/[locale]/images/product-2.png";
-import Product3 from "@/app/[locale]/images/product-3.png";
 import Product4 from "@/app/[locale]/images/product-1-test.png";
 const ProductsFilter = () => {
   const [filterSelected, setFilterSelected] = useState<{

@@ -16,7 +16,7 @@ interface UxBlockProps {
 }
 
 const UxBlock: React.FC<UxBlockProps> = ({ mockUpImage, contentBlocks, titleKey,isReversed}) => {
-  const { t, rich } = useFormattedTranslation("whitelabel");
+  const { t } = useFormattedTranslation("whitelabel");
 
   return (
 

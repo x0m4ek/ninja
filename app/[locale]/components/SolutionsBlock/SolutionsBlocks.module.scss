@@ -1,0 +1,90 @@
+.wrapper_vs {
+    padding: 112px 0px;
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    h2 {
+      color: inherit;
+      font-size: var(--headline_h2);
+      background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        rgba(255, 255, 255, 0.2) 100%
+      );
+      line-height: var(--headline_h2_line);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p {
+        font-size: var(--p);
+        color: var(--body_text_color);
+        font-weight: 400;
+    }
+  }
+  .content {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    .solution {
+        
+        height: 100%;
+        .solution_header {
+            background: var(--secondary_bg_color);
+      
+            height: 127px;
+            border-radius:16px ;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-bottom: 16px;
+            p {
+                font-size: var(--headline_h5);
+                color: #fff;
+                font-weight: 500;
+            }
+        }
+        .items_wrapper {
+            background: var(--secondary_bg_color);
+            padding: 32px;
+            border-radius:16px ;
+            .items {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 32px;
+                .item {
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 8px;
+                    p {
+                        font-size: var(--p2);
+                        color: var(--body_text_color);
+                        font-weight: 400;
+                    }
+                    span {
+                        font-size: var(--p);
+                        color: #fff;
+                        font-weight: 400;
+                    }
+
+                } 
+            }
+        }
+        .button {
+            margin-top: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            width:100%;
+        }
+    }
+  }
+}

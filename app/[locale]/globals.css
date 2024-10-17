@@ -42,13 +42,13 @@
   --p: 1rem;
   --p2: 0.875rem;
 
-  --headline_h2_line:70px;
+  --headline_h2_line:71px;
 
   /* Transitions */
   --base: 0.3s;
 }
 html,body {
-  overflow-x: hidden;
+
 }
 body {
   background: var(--primary_bg_color);
@@ -179,4 +179,20 @@ body {
     --headline_h2: 40px;
     --headline_h2_line:44px;
   }
+}
+.accordion-item {
+  background-color: var(--secondary_bg_color);
+  color: #ffffff; 
+  border-bottom: 1px solid #333;
+  padding: 32px; 
+  transition: 0.3s;
+}
+
+.accordion-content {
+  color: var(--body_text_color); 
+  margin-top: 8px;
+}
+
+.accordion-item:hover {
+  background-color: #222; /* Зміна фону при наведенні */
 }

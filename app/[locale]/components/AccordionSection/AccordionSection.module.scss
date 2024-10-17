@@ -1,0 +1,31 @@
+.wrapper {
+    background: var(--secondary_bg_color);
+    border-radius: 32px;
+    padding: 64px;
+    display: flex;
+    gap: 64px;
+    .left {
+        flex: 1 ;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        h2 {
+            color: inherit;
+            font-size: var(--headline_h2);
+            background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.2) 100%);
+            line-height: var(--headline_h2_line);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p {
+                color: var(--body_text_color);
+                font-size: var(--p);
+        }
+        .button {
+            width: fit-content;
+        }
+    }
+    .right {
+        flex: 1 ;
+    }
+}

@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import styles from "./whitelabel.module.scss";
-import { useTranslations } from "next-intl";
 import Stars from "../components/svgs/Stars";
 import BorderedButton from "../components/BorderedButton/BorderedButton";
 import AnimatedText from "../components/animatedComponents/AnimatedText";
@@ -13,6 +12,11 @@ import DevelopingMockup from "@/app/[locale]/images/devoloping-mockup.png";
 import ReleaseMockup from "@/app/[locale]/images/release-mockup.png";
 import SupportMockup from "@/app/[locale]/images/support-mockup.png"
 import AnalitycsBlock from "../components/analitycsBlock/AnalitycsBlock";
+import OurAdvantages from "../components/OurAdvantages/OurAdvantages";
+import WhitelabelMotoBlock from "../components/WhitelabelMotoBlock/WhitelabelMotoBlock";
+import SolutionsBlocks from "../components/SolutionsBlock/SolutionsBlocks";
+import OurAdvantagesColumn from "../components/OurAdvantagesColumn/OurAdvantagesColumn";
+import AccordionSection from "../components/AccordionSection/AccordionSection";
 const Whitelabel = () => {
   const { t, rich } = useFormattedTranslation("whitelabel");
 
@@ -97,7 +101,13 @@ const Whitelabel = () => {
       />
       </div>
       <AnalitycsBlock />
+
       </div>
+      <OurAdvantages />
+      <WhitelabelMotoBlock />
+      <SolutionsBlocks />
+      <OurAdvantagesColumn />
+      <AccordionSection />
     </>
   );
 };

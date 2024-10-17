@@ -1,0 +1,51 @@
+.wrapper {
+    position: relative;
+    padding: 112px 0px;
+
+    h2 {
+        color: inherit;
+        font-size: var(--headline_h2);
+        background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.2) 100%);
+        line-height: var(--headline_h2_line);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .circle {
+        position: absolute;
+        bottom: -100px;
+        left: -100px;
+    }
+    .content {
+        display: flex;
+        gap: 68px;
+        justify-content: space-between;
+        .left {
+            max-width: 512px;
+            
+            position: relative;
+            .sticky {
+                top: 100px;
+                position: sticky;
+            }
+            h2 {
+            
+            }
+            .button {
+                width: fit-content;
+                margin-top: 64px;
+            }
+        }
+        .right {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Два стовпці */
+            gap: 20px; /* Відстань між блоками */
+
+            margin-bottom: 32px;
+        }
+        .right > :nth-child(2n) {
+            transform: translateY(-64px); /* Піднімаємо блоки правої колонки */
+          
+        }
+    }
+   
+}
