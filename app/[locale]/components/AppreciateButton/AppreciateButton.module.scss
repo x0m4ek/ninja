@@ -1,0 +1,20 @@
+.wrapper_button {
+    padding: 16px 32px;
+    border-radius: 56px;
+    background: var(--primary_color);
+    transition: var(--base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap:10px;
+    cursor: pointer;
+    p {
+        font-size: var(--p);
+        color: var(--primary_bg_color);
+        font-weight: 400;
+    }
+    &:hover {
+        opacity: 0.8;
+    }
+}

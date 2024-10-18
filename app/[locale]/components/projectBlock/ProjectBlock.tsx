@@ -9,12 +9,13 @@ icon:StaticImageData,
 title:string,
 desc:string,
 url:string,
+onClick:() => void;
 }
 
-const ProjectBlock:FC<OwnProps> = ({icon,title,desc,url}) => {
+const ProjectBlock:FC<OwnProps> = ({icon,title,desc,url,onClick}) => {
   return (
     <>
-    <div className={styles.wrapper_block}>
+    <div className={styles.wrapper_block} onClick={() => onClick()}>
             <div className={styles.icon}>
                 <Image src={icon} width={128} height={128} alt={title} />
             </div>
@@ -25,7 +26,7 @@ const ProjectBlock:FC<OwnProps> = ({icon,title,desc,url}) => {
                 <p>{desc}</p>
             </div>
             <div className={styles.arrow}>
-                <ArrowUrl onClick={() => console.log(url)}/>    
+                <ArrowUrl onClick={() => onClick()}/>    
             </div>
     </div>
     </>

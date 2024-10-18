@@ -14,7 +14,7 @@ export const projects : Project[] = [
       icon:NinjaSushi,
       title:"Ninja Sushi",
       desc:"Преміум-доставка піци додому та в офіс.",
-      url:"/"
+      url:"/sushi"
   },
   {
       icon:NinjaWok,
@@ -69,6 +69,7 @@ const ProjectsBlock = () => {
         desc={project.desc}
         url={project.url}
         key={index}
+        onClick={() => console.log('fd')}
         />
         </>
       ))}

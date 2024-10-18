@@ -52,14 +52,22 @@ async function RootLayout({
 }) {
   const messages = await loadMessages(params.locale);
 
+
+  
   return (
     <html lang={params.locale}>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased`} id='body'>
+   
         <IntlProviderCustom locale={params.locale} messages={messages} >
+
+     
           <Navbar />
+   
           {children}
+
           <Footer />
         </IntlProviderCustom>
+   
       </body>
     </html>
   );

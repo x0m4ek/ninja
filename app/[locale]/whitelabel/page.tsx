@@ -21,9 +21,11 @@ const Whitelabel = () => {
   const { t, rich } = useFormattedTranslation("whitelabel");
 
 
-
   return (
     <>
+
+
+
       <div className="conteiner">
         <div className={`${styles.circle} circle`}></div>
         <div className={styles.wrapper}>
@@ -108,6 +110,7 @@ const Whitelabel = () => {
       <SolutionsBlocks />
       <OurAdvantagesColumn />
       <AccordionSection />
+
     </>
   );
 };

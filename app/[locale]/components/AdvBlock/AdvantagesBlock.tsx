@@ -8,12 +8,13 @@ type OwnProps = {
     desc:string,
     withNumber?:boolean,
     number?:string,
+    key?:number,
 }
 
-const AdvantagesBlock:FC<OwnProps> = ({icon, title,desc, withNumber = false,number}) => {
+const AdvantagesBlock:FC<OwnProps> = ({icon, title,desc, withNumber = false,number, key}) => {
   return (
     <>
-        <div className={`${styles.block} border-custom`}>
+        <div className={`${styles.block} border-custom`} key={key} >
           {withNumber ? <><div className={styles.number}>{number}</div></> :   <Image src={icon!} width={128} height={128}  alt="Icon" objectFit='cover'/> }
          
            <div className={styles.text_data}>

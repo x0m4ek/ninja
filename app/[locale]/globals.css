@@ -47,9 +47,15 @@
   /* Transitions */
   --base: 0.3s;
 }
-html,body {
 
+.transition-element {
+  z-index:9999999999999999;
+  position: relative;
+  
 }
+
+
+
 body {
   background: var(--primary_bg_color);
   
@@ -195,4 +201,56 @@ body {
 
 .accordion-item:hover {
   background-color: #222; /* Зміна фону при наведенні */
+}
+
+
+
+/* GLOBAL SCROLLBAR */
+/* Для Chrome, Edge та Safari */
+::-webkit-scrollbar {
+  width: 12px; /* Ширина скроллбара */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary_bg_color); /* Колір доріжки */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary_color); /* Колір бігуна */
+ 
+  border-radius: 32px; /* Закруглені кути бігуна */
+  border: 3px solid var(--secondary_bg_color); /* Відступ між бігуном і доріжкою */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Колір бігуна при наведенні */
+}
+
+/* Для Firefox */
+* {
+  scrollbar-width: thin; /* Тонкий скроллбар */
+  scrollbar-color: var(--primary_color) var(--secondary_bg_color); /* Колір бігуна та доріжки */
+}
+
+/* Для Internet Explorer 10+ та старих версій Edge */
+.scrollable-element {
+  -ms-overflow-style: none; /* Прибирає стандартний скроллбар */
+}
+
+.scrollable-element::-ms-scrollbar {
+  width: 12px;
+}
+
+.scrollable-element::-ms-scrollbar-track {
+  background-color: var(--secondary_bg_color); /* Колір доріжки */
+}
+
+.scrollable-element::-ms-scrollbar-thumb {
+  background-color: var(--primary_color); /* Колір бігуна */
+  border-radius:32px;
+  border: 3px solid var(--secondary_bg_color); /* Відступ між бігуном і доріжкою */
+}
+
+.scrollable-element::-ms-scrollbar-thumb:hover {
+  background-color: #555; /* Колір бігуна при наведенні */
 }

@@ -1,0 +1,216 @@
+.wrapper {
+    display: flex;
+    gap: 16px;
+    padding: 112px 0px;
+    .left {
+        flex: 1;
+        background: var(--secondary_bg_color);
+        border-radius: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 48px;
+        max-height: 780px;
+        .top_items {
+            display: flex;
+            justify-content: space-between;
+            h2 {
+                color: inherit;
+                font-size: var(--headline_h2);
+                background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.2) 100%);
+                line-height: var(--headline_h2_line);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .rating {
+                padding: 32px;
+                position: relative;
+                background: linear-gradient(117.54deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 100%);
+                border-radius: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                span {
+                    z-index: 2;
+                    font-size: var(--headline_h2);
+                    color: var(--primary_color);
+                }
+                p {
+                    z-index: 2;
+                    font-size: var(--p);
+                    color: var(--body_text_color);
+                    span {
+                        font-size: inherit;
+                        color: var(--primary_color);
+                    }
+                }
+            }
+        }
+        .content {
+            margin-top: 90px;
+            p {
+                color: var(--body_text_color);
+                font-size: var(--p);
+                span {
+                    color: var(--primary_color);
+                }
+            }
+            .tasks {
+                display: flex;
+                gap:32px;
+                flex-direction: column;
+                .task {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    p {
+                        font-size: var(--p);
+                        color: #fff;
+                        span {
+                            color: var(--primary_color);
+                        }
+                    }
+                }
+            }
+            .button {
+                width: fit-content;
+                margin-top: 107px;  
+            }
+        }
+    }
+    .right {
+        flex: 1;
+        max-height: 780px;
+        overflow: auto;
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+        position: relative;
+    
+        &::-webkit-scrollbar { 
+            display: none;  /* Safari and Chrome */
+            z-index: 45;
+        }
+        .content {
+            column-count: 2;
+            column-gap: 16px;
+            .review {
+                display: inline-flex;
+                flex-direction: column;
+                background: var(--secondary_bg_color);
+                border-radius: 16px;
+                padding: 24px;
+                margin-top: 16px;
+                p {
+                    margin-top: 32px;
+                    color: #fff;
+                    font-weight: 600;
+                    font-size: var(--p);
+                    margin-bottom: 8px;
+                }
+                span {
+                    font-size: var(--p);
+                    line-height: 24px;
+                    color: var(--body_text_color);
+                }
+                .author {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    margin-top: 32px;
+                    p {
+                        margin-top: 0px;
+                        font-size: var(--p2);
+                        color: #fff;
+                    }
+                    span {
+                        font-size: var(--p2);
+                        color: var(--body_text_color);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1228px) {
+    .wrapper {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-rows: auto;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(1, 880px);
+        .right {
+            width: 100%;
+            height: auto; 
+            max-height: none;
+            grid-column: 2;
+            .content {
+                column-count: 1;
+            }
+        }
+        .left {
+            
+            width: 100%;
+            max-height: none;
+            .top_items {
+                flex-direction: column-reverse;
+                .rating {
+                    padding: 16px;
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    width: fit-content;
+                    flex-direction: row;
+                    span {
+                        font-size: 32px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width:768px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        .left {
+            padding: 32px;
+            .top_items {
+                gap: 32px;
+            }
+            .content {
+                margin-top: 32px;
+                .button {
+                    margin-top: 32px;
+                }
+            }
+        }
+        .right {
+            .content {
+                display: flex;
+                
+                flex-direction: row;
+                .review {
+                    width: 100%;
+                    min-width: 80%;
+                }
+            }
+        
+        }
+    }
+}
+
+@media screen  and (max-width:500px){
+    .wrapper {
+        .left{
+            .content {
+            .button {
+                width: 100%;
+            }
+        }
+        }
+    }
+}

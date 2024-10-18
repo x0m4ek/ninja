@@ -1,3 +1,4 @@
+'use client'
 import LandingBlock from "./components/landing/LandingBlock";
 import ExperienceBlock from "./components/experienceBlock/ExperienceBlock";
 import ProductsSection from "./components/ProductsSection/ProductsSection";
@@ -6,6 +7,7 @@ import CooperationBlock from "./components/CooperationBlock/CooperationBlock";
 
 
 export default function Home() {
+
   return (
    <>
 
