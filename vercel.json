@@ -1,0 +1,15 @@
+{
+    "rewrites": [
+      {
+        "source": "/:locale/:path*",
+        "destination": "/:path*"
+      }
+    ],
+    "routes": [
+      {
+        "src": "^/(?<locale>[a-z]{2})/?$",
+        "dest": "/"
+      }
+    ]
+  }
+  
