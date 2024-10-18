@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import styles from "./animatedText.module.scss";
+import styles from "./AnimatedText.module.scss";
 
 type AnimatedTextProps = {
   children: React.ReactNode;
