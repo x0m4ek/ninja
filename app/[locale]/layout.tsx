@@ -13,8 +13,8 @@ function getBaseUrl() {
     return '';
   }
 
-  const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
-  const host = process.env.VERCEL_URL || 'localhost:3000'; 
+  const protocol = 'https';
+  const host = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000'; 
   return `${protocol}://${host}`;
 }
 
