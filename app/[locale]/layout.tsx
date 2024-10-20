@@ -2,55 +2,59 @@ import { Inter } from 'next/font/google';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import IntlProviderCustom from './components/providers/IntlProvider';
-import "./globals.css"
-import { base } from 'framer-motion/client';
+import "./globals.css";
+
 const inter = Inter({ subsets: ['latin'] });
 
+// Функція для отримання базового URL залежно від оточення
 function getBaseUrl() {
-  // Перевіряємо, чи виконується код на клієнті
   if (typeof window !== 'undefined') {
-    return '';
+    return ''; // Для клієнтського коду повертаємо пустий рядок
   }
 
-  // Визначаємо базовий URL для серверного оточення
   const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
   const host = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000';
+   // Дефолтно використовуємо localhost
+   console.log('host',host)
   return `${protocol}://${host}`;
 }
 
+// Функція для завантаження локальних повідомлень
 async function loadMessages(locale: string) {
-  const baseUrl = getBaseUrl();
-  const localesDir = `${baseUrl}/locales/${locale}/`;
+  const baseUrl = getBaseUrl(); // Отримуємо базовий URL
+  const localesDir = `${baseUrl}/locales/${locale}/`; // Шлях до локалей
   const fileNames = ['common.json', 'whitelabel.json', 'sushi.json'];
 
   const messages: Record<string, any> = {};
 
   try {
+    // Завантажуємо файли локалей для зазначеного locale
     for (const fileName of fileNames) {
       const res = await fetch(`${localesDir}${fileName}`);
-
+      
       if (!res.ok) {
         throw new Error(`Failed to load ${fileName} for locale ${locale}`);
       }
 
       const fileContent = await res.json();
-      const namespace = fileName.replace('.json', ''); // Ім'я як namespace
+      const namespace = fileName.replace('.json', ''); // Використовуємо ім'я файлу як namespace
       messages[namespace] = fileContent;
     }
 
     return messages;
   } catch (error) {
     console.error('Error loading locale files:', error);
-    return await loadFallbackMessages(); // Фолбек до англійської
+    return await loadFallbackMessages(); // Фолбек до англійської локалі
   }
 }
 
+// Функція для фолбеку на англійську мову
 async function loadFallbackMessages() {
-  const baseUrl = getBaseUrl();
+  const baseUrl = getBaseUrl(); // Отримуємо базовий URL
   const fallbackLocale = 'en';
   const fallbackDir = `${baseUrl}/locales/${fallbackLocale}/`;
   const fileNames = ['common.json', 'navigation.json', 'footer.json'];
-  console.log(base)
+
   const fallbackMessages: Record<string, any> = {};
 
   for (const fileName of fileNames) {
@@ -59,12 +63,15 @@ async function loadFallbackMessages() {
       const fileContent = await res.json();
       const namespace = fileName.replace('.json', '');
       fallbackMessages[namespace] = fileContent;
+    } else {
+      console.error(`Failed to load fallback file: ${fileName}`);
     }
   }
 
   return fallbackMessages;
 }
 
+// Головний компонент Layout
 export default async function RootLayout({
   children,
   params,
@@ -73,6 +80,7 @@ export default async function RootLayout({
   params: { locale: string };
 }) {
   try {
+    // Завантажуємо повідомлення для вибраної локалі
     const messages = await loadMessages(params.locale);
 
     return (
@@ -88,6 +96,8 @@ export default async function RootLayout({
     );
   } catch (error) {
     console.error('Failed to load messages or render layout:', error);
+
+    // Показуємо сторінку помилки
     return (
       <html lang="en">
         <body className={`${inter.className} antialiased`} id="body">

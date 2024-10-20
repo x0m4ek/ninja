@@ -6,6 +6,9 @@ const nextConfig = {
         // your project has ESLint errors.
         ignoreDuringBuilds: true,
       },
+      env: {
+        NEXT_PUBLIC_VERCEL_URL: process.env.VERCEL_URL,
+      },
 };
 
 export default nextConfig;
