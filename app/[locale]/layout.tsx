@@ -1,31 +1,26 @@
-
 import { Inter } from 'next/font/google';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import IntlProviderCustom from './components/providers/IntlProvider';
 import "./globals.css"
+import { base } from 'framer-motion/client';
 const inter = Inter({ subsets: ['latin'] });
 
-
 function getBaseUrl() {
-  // Перевіряємо, чи це виконується на клієнті
+  // Перевіряємо, чи виконується код на клієнті
   if (typeof window !== 'undefined') {
-    // Якщо ми на клієнті, повертаємо базовий шлях
     return '';
   }
 
-  // Для SSR або на сервері визначаємо базовий URL
-  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http'; // Протокол залежить від середовища
-  const host = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000'; // У продакшені NEXT_PUBLIC_VERCEL_URL буде автоматично надано
-
-  // Повертаємо повний URL для сервера або продакшену
+  // Визначаємо базовий URL для серверного оточення
+  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
+  const host = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000';
   return `${protocol}://${host}`;
 }
 
-
 async function loadMessages(locale: string) {
   const baseUrl = getBaseUrl();
-  const localesDir = `${baseUrl}/locales/${locale}/`; 
+  const localesDir = `${baseUrl}/locales/${locale}/`;
   const fileNames = ['common.json', 'whitelabel.json', 'sushi.json'];
 
   const messages: Record<string, any> = {};
@@ -55,7 +50,7 @@ async function loadFallbackMessages() {
   const fallbackLocale = 'en';
   const fallbackDir = `${baseUrl}/locales/${fallbackLocale}/`;
   const fileNames = ['common.json', 'navigation.json', 'footer.json'];
-
+  console.log(base)
   const fallbackMessages: Record<string, any> = {};
 
   for (const fileName of fileNames) {
@@ -77,17 +72,28 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const messages = await loadMessages(params.locale);
+  try {
+    const messages = await loadMessages(params.locale);
 
-  return (
-    <html lang={params.locale}>
-      <body className={`${inter.className} antialiased`} id="body">
-        <IntlProviderCustom locale={params.locale} messages={messages}>
-          <Navbar />
-          {children}
-          <Footer />
-        </IntlProviderCustom>
-      </body>
-    </html>
-  );
+    return (
+      <html lang={params.locale}>
+        <body className={`${inter.className} antialiased`} id="body">
+          <IntlProviderCustom locale={params.locale} messages={messages}>
+            <Navbar />
+            {children}
+            <Footer />
+          </IntlProviderCustom>
+        </body>
+      </html>
+    );
+  } catch (error) {
+    console.error('Failed to load messages or render layout:', error);
+    return (
+      <html lang="en">
+        <body className={`${inter.className} antialiased`} id="body">
+          <div>Error loading page</div>
+        </body>
+      </html>
+    );
+  }
 }
