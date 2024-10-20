@@ -33,7 +33,7 @@ async function loadMessages(locale: string) {
       const url = `${localesDir}${fileName}`;  // Формуємо URL для кожного файлу
       console.log(`Завантаження локалізації з: ${url}`);  // Лог для перевірки шляху
       const res = await fetch(url);  // Завантажуємо файл
-
+      console.log(await res.json(), res.ok)
       if (!res.ok) {
         throw new Error(`Failed to load ${fileName} for locale ${locale}`);  // Якщо не вдається завантажити
       }
