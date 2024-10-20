@@ -8,15 +8,20 @@ const inter = Inter({ subsets: ['latin'] });
 
 
 function getBaseUrl() {
+  // Перевіряємо, чи це виконується на клієнті
   if (typeof window !== 'undefined') {
- 
+    // Якщо ми на клієнті, повертаємо базовий шлях
     return '';
   }
 
-  const protocol = 'https';
-  const host = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000'; 
+  // Для SSR або на сервері визначаємо базовий URL
+  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http'; // Протокол залежить від середовища
+  const host = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000'; // У продакшені NEXT_PUBLIC_VERCEL_URL буде автоматично надано
+
+  // Повертаємо повний URL для сервера або продакшену
   return `${protocol}://${host}`;
 }
+
 
 async function loadMessages(locale: string) {
   const baseUrl = getBaseUrl();
