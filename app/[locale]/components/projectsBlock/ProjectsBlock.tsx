@@ -20,31 +20,31 @@ export const projects : Project[] = [
       icon:NinjaWok,
       title:"Ninja Wok",
       desc:"Сервіс доставки японської кухні з акцентом на свіжість і смак",
-      url:"/"
+      url:"/wok"
   },
   {
       icon:NinjaPizza,
       title:"Ninja Pizza",
       desc:"Преміум-доставка піци додому та в офіс.",
-      url:"/"
+      url:"/pizza"
   },
   {
       icon:NinjaFit,
       title:"Ninja Fit",
       desc:"Лічильник калорій, дієтолог, тренер та консультант з харчування",
-      url:"/"
+      url:"/fit"
   },
   {
       icon:NinjaCasino,
       title:"Ninja Casino",
       desc:"Whitelabel рішення для власників  iGaming продуктів",
-      url:"/"
+      url:"/casino"
   },
   {
       icon:NinjaWater,
       title:"Ninja Water Tracker ",
       desc:"Додаток для відстеження водного балансу",
-      url:"/"
+      url:"/tracker"
   },
   ]
 type Project = {

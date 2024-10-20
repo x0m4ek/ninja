@@ -12,11 +12,11 @@ function getBaseUrl() {
     return ''; // Для клієнтського коду повертаємо пустий рядок
   }
 
-  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'https';
+  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
   const host = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000';
    // Дефолтно використовуємо localhost
-   console.log('host',host)
-  return `${protocol}://ninja-dbbl.vercel.app/`;
+  //  console.log('host',host)
+  return `${protocol}://ninja-dbbl.vercel.app/uk/whitelabel`;
 }
 
 // Функція для завантаження локальних повідомлень
@@ -24,14 +24,16 @@ async function loadMessages(locale: string) {
   try {
     const baseUrl = getBaseUrl();  // Отримуємо базовий URL
     const localesDir = `${baseUrl}/locales/${locale}/`;  // Директорія з локалізаціями
-    const fileNames = ['common.json', 'whitelabel.json', 'sushi.json'];  // Імена файлів
+    const fileNames = ['common.json', 'whitelabel.json', 'sushi.json', 'pizza.json'];  // Імена файлів
 
     const messages: Record<string, any> = {};
 
     for (const fileName of fileNames) {
       const url = `${localesDir}${fileName}`;  // Формуємо URL для кожного файлу
       console.log(`Завантаження локалізації з: ${url}`);  // Лог для перевірки шляху
-      const res = await fetch(url);  // Завантажуємо файл
+      const res = await fetch(url, {
+        cache: 'no-store',  // Вказуємо, щоб не використовував кеш
+      });
 
       if (!res.ok) {
         throw new Error(`Failed to load ${fileName} for locale ${locale}`);  // Якщо не вдається завантажити
@@ -48,6 +50,7 @@ async function loadMessages(locale: string) {
     return await loadFallbackMessages();  // Фолбек на англійську мову
   }
 }
+
 
 // Функція для фолбеку на англійську мову
 async function loadFallbackMessages() {

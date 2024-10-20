@@ -66,3 +66,19 @@
     }
    
 }
+@media screen and (max-width:768px) {
+    
+}
+.wrapper {
+    .top_items {
+        width: 100%;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 32px;
+        .navigation {
+            width: 100%;
+            justify-content: space-between;
+        }
+        
+    }
+}
