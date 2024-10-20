@@ -12,12 +12,11 @@ function getBaseUrl() {
     return ''; // Для клієнтського коду повертаємо пустий рядок
   }
 
-  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
+  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'https';
   const host = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000';
    // Дефолтно використовуємо localhost
-   console.log(`suka${protocol}://${host}`)
-  return `${protocol}://${host}`;
-
+   console.log('host',host)
+  return `${protocol}://ninja-dbbl.vercel.app/`;
 }
 
 // Функція для завантаження локальних повідомлень
@@ -33,7 +32,7 @@ async function loadMessages(locale: string) {
       const url = `${localesDir}${fileName}`;  // Формуємо URL для кожного файлу
       console.log(`Завантаження локалізації з: ${url}`);  // Лог для перевірки шляху
       const res = await fetch(url);  // Завантажуємо файл
-      console.log(await res.json(), res.ok)
+
       if (!res.ok) {
         throw new Error(`Failed to load ${fileName} for locale ${locale}`);  // Якщо не вдається завантажити
       }
