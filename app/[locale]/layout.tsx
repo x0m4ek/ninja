@@ -15,36 +15,38 @@ function getBaseUrl() {
   const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
   const host = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000';
    // Дефолтно використовуємо localhost
-   console.log('host',host)
+   console.log(`suka${protocol}://${host}`)
   return `${protocol}://${host}`;
+
 }
 
 // Функція для завантаження локальних повідомлень
 async function loadMessages(locale: string) {
-  const baseUrl = getBaseUrl(); // Отримуємо базовий URL
-  const localesDir = `${baseUrl}/locales/${locale}/`; // Шлях до локалей
-  const fileNames = ['common.json', 'whitelabel.json', 'sushi.json'];
-
-  const messages: Record<string, any> = {};
-
   try {
-    // Завантажуємо файли локалей для зазначеного locale
+    const baseUrl = getBaseUrl();  // Отримуємо базовий URL
+    const localesDir = `${baseUrl}/locales/${locale}/`;  // Директорія з локалізаціями
+    const fileNames = ['common.json', 'whitelabel.json', 'sushi.json'];  // Імена файлів
+
+    const messages: Record<string, any> = {};
+
     for (const fileName of fileNames) {
-      const res = await fetch(`${localesDir}${fileName}`);
-      
+      const url = `${localesDir}${fileName}`;  // Формуємо URL для кожного файлу
+      console.log(`Завантаження локалізації з: ${url}`);  // Лог для перевірки шляху
+      const res = await fetch(url);  // Завантажуємо файл
+
       if (!res.ok) {
-        throw new Error(`Failed to load ${fileName} for locale ${locale}`);
+        throw new Error(`Failed to load ${fileName} for locale ${locale}`);  // Якщо не вдається завантажити
       }
 
-      const fileContent = await res.json();
-      const namespace = fileName.replace('.json', ''); // Використовуємо ім'я файлу як namespace
-      messages[namespace] = fileContent;
+      const fileContent = await res.json();  // Отримуємо контент файлу
+      const namespace = fileName.replace('.json', '');  // Ім'я файлу як namespace
+      messages[namespace] = fileContent;  // Зберігаємо в об'єкт
     }
 
-    return messages;
+    return messages;  // Повертаємо об'єкт з повідомленнями
   } catch (error) {
-    console.error('Error loading locale files:', error);
-    return await loadFallbackMessages(); // Фолбек до англійської локалі
+    console.error('Error loading locale files:', error);  // Виводимо помилку
+    return await loadFallbackMessages();  // Фолбек на англійську мову
   }
 }
 
