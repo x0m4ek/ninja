@@ -59,7 +59,7 @@ const Navbar = () => {
       <div className={styles.navbar_wrapper}>
         <div className="conteiner">
           <div className={styles.content}>
-            <div className={styles.logo_wrapper}>
+            <div className={styles.logo_wrapper} onClick={() =>animatePageOut(`/${currentLocale}`,router)}>
               <Logo />
             </div>
             <div className={styles.menu_wrapper}>

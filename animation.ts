@@ -17,8 +17,6 @@ export const animatePageIn = () => {
       .to(
         transitionElement,
         {
-          // borderTopLeftRadius: "50vh",
-          // borderTopRightRadius: "50vh",
           duration: 0.4,
         },
         "<"
@@ -29,18 +27,23 @@ export const animatePageIn = () => {
 export const animatePageOut = (href: string, router: AppRouterInstance) => {
   const animationWrapper = document.getElementById("transition-element");
 
+  // Отримуємо поточний шлях із роутера
+  const currentPath = window.location.pathname;
+
+  // Якщо поточний шлях збігається з новим шляхом (href), не запускаємо анімацію
+  if (currentPath === href) {
+    console.log("The user is already on this page, no animation required.");
+    return;
+  }
+
   if (animationWrapper) {
     const tl = gsap.timeline();
 
     tl.set(animationWrapper, {
       yPercent: -100,
-      // borderTopRightRadius: "0",
-      // borderBottomRightRadius: "50vh",
-      // borderTopLeftRadius: "0",
-      // borderBottomLeftRadius: "50vh",
     })
       .to(animationWrapper, {
-       yPercent: 0,
+        yPercent: 0,
         duration: 0.8,
         onComplete: () => {
           router.push(href);
