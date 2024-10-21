@@ -8,6 +8,9 @@ import NinjaCasino from "@/app/[locale]/images/ninja-casino.png";
 import NinjaWater from "@/app/[locale]/images/ninja-water.png";
 import NinjaPizza from "@/app/[locale]/images/ninja-pizza.png";
 import { StaticImageData } from 'next/image';
+import { animatePageOut } from '@/animation';
+import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 export const projects : Project[] = [
   {
@@ -55,6 +58,9 @@ type Project = {
 }
 
 const ProjectsBlock = () => {
+  const pathname = usePathname();
+  const currentLocale = pathname.split('/')[1] || "en";
+  const router = useRouter();
   
   return (
     <>
@@ -69,7 +75,8 @@ const ProjectsBlock = () => {
         desc={project.desc}
         url={project.url}
         key={index}
-        onClick={() => console.log('fd')}
+        onClick={() => animatePageOut(`/${currentLocale}/${project.url}`, router)}
+
         />
         </>
       ))}

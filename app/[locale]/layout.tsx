@@ -16,15 +16,15 @@ function getBaseUrl() {
   const host = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000';
    // Дефолтно використовуємо localhost
   //  console.log('host',host)
-  return `${protocol}://ninja-dbbl.vercel.app/uk/whitelabel`;
+  return `${protocol}://ninja-dbbl.vercel.app/`;
 }
 
 // Функція для завантаження локальних повідомлень
 async function loadMessages(locale: string) {
   try {
-    const baseUrl = getBaseUrl();  // Отримуємо базовий URL
-    const localesDir = `${baseUrl}/locales/${locale}/`;  // Директорія з локалізаціями
-    const fileNames = ['common.json', 'whitelabel.json', 'sushi.json', 'pizza.json'];  // Імена файлів
+    const baseUrl = getBaseUrl();  
+    const localesDir = `${baseUrl}/locales/${locale}/`;  
+    const fileNames = ['common.json', 'whitelabel.json', 'sushi.json', 'pizza.json','wok.json', 'fit.json','tracker.json']; 
 
     const messages: Record<string, any> = {};
 
@@ -57,7 +57,7 @@ async function loadFallbackMessages() {
   const baseUrl = getBaseUrl(); // Отримуємо базовий URL
   const fallbackLocale = 'en';
   const fallbackDir = `${baseUrl}/locales/${fallbackLocale}/`;
-  const fileNames = ['common.json', 'navigation.json', 'footer.json'];
+  const fileNames = ['common.json', 'whitelabel.json', 'sushi.json', 'pizza.json','wok.json', 'fit.json','tracker.json']; 
 
   const fallbackMessages: Record<string, any> = {};
 

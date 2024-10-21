@@ -1,0 +1,123 @@
+.wrapper {
+    display: grid;
+    gap: 16px;
+    padding: 112px 0px;
+    grid-template-columns: repeat(2, 1fr);
+    .right {
+      
+        height: 100%;
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 32px;
+            object-fit: cover;
+        }
+    }
+    .left {
+        gap: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: #16171F;
+        flex: 1;
+        border-radius: 32px;
+        padding: 64px;
+
+    
+            span {
+                color: var(--primary_color);
+                font-size: var(--p);
+                line-height: 24px;
+                font-weight: 400;
+                margin-bottom: -8px;
+            }
+            h2 {
+                color: inherit;
+                font-size: var(--headline_h2);
+                background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.2) 100%);
+                line-height: var(--headline_h2_line);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+            }
+          
+
+        
+        .tasks {
+            display: flex;
+            flex-direction: column;
+            gap:    32px;
+            .task {
+                display: flex;
+                align-items: center;
+                gap:8px;
+                p {
+                    font-size: var(--p);
+                    color: #fff;
+                    font-weight: 400;
+                }
+            }
+        }
+        .button {
+            width: fit-content;
+            span {
+                margin-bottom: 0px;
+                color: #fff;
+            }
+        }
+        
+    }
+}
+.reversed {
+    .left {
+        order: 1;
+    }
+    .right {
+        order: -1;
+    }
+
+}
+
+@media screen and (max-width:1024px) {
+    .wrapper {
+
+        .right {
+            width: 100%;
+            max-width: none;
+            object-fit: contain;
+            img {
+                width: 60%;
+                margin: 0 auto;
+            }
+        }
+        .left {
+            width: 100%;
+        }
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media screen and (max-width:768px) {
+    .wrapper {
+        .left {
+            padding: 32px;
+        }
+        .right {
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+@media screen and (max-width:505px) {
+    .wrapper {
+        .left {
+            .tasks {
+                .task {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+            }
+        }
+    }
+}

@@ -76,14 +76,14 @@ const Navbar = () => {
                 >
                   <DropdownTrigger className="aria-expanded:opacity-100">
                     <li>
-                      <TransitionLink
+                      <a
                         href={`/${currentLocale}`}
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
                         className={`${isOpen ? styles.active : ""}`}
                       >
                         Приклади рішень <ArrowDown className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''} ${isOpen ? 'active_svg' : ""}`} />
-                      </TransitionLink>
+                      </a>
                     </li>
                   </DropdownTrigger>
 

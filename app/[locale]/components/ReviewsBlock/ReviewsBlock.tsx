@@ -12,10 +12,13 @@ type OwnProps = {
     withTasks?:boolean,
     // taskText?:string,
     text?:ReactNode,
-
+    reviews_text_1?:ReactNode,
+    reviews_text_2?:ReactNode,
+    reviews_text_3?:ReactNode,
+    reviews_text_4?:ReactNode,
 }
 
-const ReviewsBlock:FC<OwnProps> = ({rating, ratingText, withTasks = false,text}) => {
+const ReviewsBlock:FC<OwnProps> = ({rating, ratingText, withTasks = false,text,reviews_text_1,reviews_text_2,reviews_text_3,reviews_text_4}) => {
   const { t, rich } = useFormattedTranslation("sushi");
   return (
     <>
@@ -34,16 +37,23 @@ const ReviewsBlock:FC<OwnProps> = ({rating, ratingText, withTasks = false,text})
                     <div className={styles.tasks}>
                 <div className={styles.task}>
                   <Stars />
-                  <p>{rich("reviews_text_1")}</p>
+                  <p>{reviews_text_1}</p>
                 </div>
                 <div className={styles.task}>
                   <Stars />
-                  <p>{rich("reviews_text_2")}</p>
+                  <p>{reviews_text_2}</p>
                 </div>
                 <div className={styles.task}>
                   <Stars />
-                  <p>{rich("reviews_text_3")}</p>
+                  <p>{reviews_text_3}</p>
                 </div>
+                {reviews_text_4 ? <>
+                  <div className={styles.task}>
+                  <Stars />
+                  <p>{reviews_text_4}</p>
+                </div>
+                </> : null}
+          
               </div>
                 </> : <>
                 <p>

@@ -11,13 +11,16 @@ type OwnProps = {
     desc:string,
     hoverImage:StaticImageData,
     mobileImage:StaticImageData,
+    onClick:() => void;
 }
 
-const ProductBlock:FC<OwnProps> = ({title,desc,hoverImage,mobileImage}) => {
+const ProductBlock:FC<OwnProps> = ({title,desc,hoverImage,mobileImage,onClick}) => {
     const [hoverState ,setHoverState] = useState<boolean>(false);
   return (
     <>
-    <div className={styles.product_wrapper} onMouseEnter={() => setHoverState(true)} onMouseLeave={() => setHoverState(false)}>
+    <div className={styles.product_wrapper} onMouseEnter={() => setHoverState(true)} onMouseLeave={() => setHoverState(false)}
+        onClick={() => onClick()}
+        >
         <Image 
         className={styles.hover_image}
         src={hoverImage}

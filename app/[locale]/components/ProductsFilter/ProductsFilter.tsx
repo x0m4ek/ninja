@@ -10,7 +10,13 @@ import Hover4 from "@/app/[locale]/images/hover-4.png";
 import Hover5 from "@/app/[locale]/images/hover-5.png";
 import Hover6 from "@/app/[locale]/images/hover-6.png";
 import Product4 from "@/app/[locale]/images/product-1-test.png";
+import { animatePageOut } from "@/animation";
+import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 const ProductsFilter = () => {
+  const pathname = usePathname();
+  const currentLocale = pathname.split('/')[1] || "en";
+  const router = useRouter();
   const [filterSelected, setFilterSelected] = useState<{
     [key: string]: boolean;
   }>({
@@ -37,6 +43,7 @@ const ProductsFilter = () => {
       hoverImage: Hover1,
       category: "ecomerce",
       mobileImage:Product4,
+      url:"/sushi"
     },
     {
       title: "Ninja Wok",
@@ -44,6 +51,7 @@ const ProductsFilter = () => {
       hoverImage: Hover2,
       category: "ecomerce",
       mobileImage:Product4,
+      url:"/wok"
     },
     {
       title: "Ninja Pizza",
@@ -51,6 +59,7 @@ const ProductsFilter = () => {
       hoverImage: Hover3,
       category: "ecomerce",
       mobileImage:Product4,
+      url:"/pizza"
     },
     {
       title: "Ninja Fit",
@@ -58,6 +67,7 @@ const ProductsFilter = () => {
       hoverImage: Hover4,
       category: "health",
       mobileImage:Product4,
+      url:"/fit"
     },
     {
       title: "Ninja Water Tracker",
@@ -65,6 +75,7 @@ const ProductsFilter = () => {
       hoverImage: Hover5,
       category: "health",
       mobileImage:Product4,
+      url:"/tracker"
     },
     {
       title: "Casino & Sports App",
@@ -72,6 +83,7 @@ const ProductsFilter = () => {
       hoverImage: Hover6,
       category: "gambling",
       mobileImage:Product4,
+      url:"/casino"
     },
   ];
 
@@ -104,6 +116,7 @@ const ProductsFilter = () => {
         <div className={styles.filtered_products}>
           {filteredProducts.map((product, index) => (
             <ProductBlock
+              onClick={() =>animatePageOut(`/${currentLocale}/${product.url}`,router)}
               key={index}
               title={product.title}
               desc={product.desc}

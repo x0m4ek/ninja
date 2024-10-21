@@ -158,7 +158,10 @@ const Pizza = () => {
                     ratingText={rich("reviews_rating")}
                     text={rich('reviews_text_main')}
                     withTasks
-                    
+                    reviews_text_1={rich('reviews_text_1')}
+                    reviews_text_2={rich('reviews_text_2')}
+                    reviews_text_3={rich('reviews_text_3')}
+  
                     />
                     <WhyUsBlock 
                     
