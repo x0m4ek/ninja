@@ -4,14 +4,18 @@ import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.share
 // Функції для вимкнення та ввімкнення плавного скролу
 const disableSmoothScroll = () => {
   const smoothScrollComponent = document.querySelector('.smooth-scroll-component');
+  //@ts-ignore
   if (smoothScrollComponent && smoothScrollComponent.disableSmoothScroll) {
+      //@ts-ignore
     smoothScrollComponent.disableSmoothScroll();
   }
 };
 
 const enableSmoothScroll = () => {
   const smoothScrollComponent = document.querySelector('.smooth-scroll-component');
+    //@ts-ignore
   if (smoothScrollComponent && smoothScrollComponent.enableSmoothScroll) {
+      //@ts-ignore
     smoothScrollComponent.enableSmoothScroll();
   }
 };

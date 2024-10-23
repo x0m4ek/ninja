@@ -5,12 +5,8 @@ import AdvantagesBlock from "../AdvBlock/AdvantagesBlock";
 import QualityIcon from "@/app/[locale]/images/qIcon.jpg";
 import ComplexIcon from "@/app/[locale]/images/cIcon.png";
 import AIcon from "@/app/[locale]/images/AIcon.png";
-import AnimatedScrambleText from "../animatedComponents/AnimatedScramblingText";
-import GrowText from "../animatedComponents/GrowText";
 import AnimatedGrowingText from "../animatedComponents/GrowText";
 import useFormattedTranslation from "../../utils/hooks/useFormattedTranslation";
-import AnimatedBouncingText from "../animatedComponents/AnimatedBouncingText";
-import AnimationRotate from "../animatedComponents/AnimationRotate";
 import SlideInBlur from "../animatedComponents/SideInBlur";
 import AnimationRotateScroll from "../animatedComponents/AnimationRotateScroll";
 

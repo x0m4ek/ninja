@@ -18,7 +18,7 @@ function getBaseUrl() {
   const host = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000';
    // Дефолтно використовуємо localhost
   //  console.log('host',host)
-  return `${protocol}:${host}`;
+  return `${protocol}://ninja-dbbl.vercel.app/`;
 }
 
 // Функція для завантаження локальних повідомлень
