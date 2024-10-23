@@ -31,8 +31,8 @@ const CooperationBlock = () => {
           </div>
           </BlurOnScroll>
           <div className={styles.blocks}>
-            <BlurOnScroll className="flex-1 flex-grow">
-            <AnimationRotateScroll className="flex-1 flex-grow">
+            <BlurOnScroll className="flex-1 flex-grow flex">
+            <AnimationRotateScroll className="flex-1 flex-grow flex">
             <div className={styles.block}>
               <Image src={Icon} width={120} height={120} alt="Icon" />
               <div className={styles.top_data}>
@@ -71,8 +71,8 @@ const CooperationBlock = () => {
               </div>
             </div>
             </AnimationRotateScroll></BlurOnScroll>
-            <BlurOnScroll className="flex-1 flex-grow">
-            <AnimationRotateScroll className="flex-1 flex-grow" isReversed>
+            <BlurOnScroll className="flex-1 flex-grow flex">
+            <AnimationRotateScroll className="flex-1 flex-grow flex" isReversed>
             <div className={styles.block}>
               <Image src={Icon} width={120} height={120} alt="Icon" />
               <div className={styles.top_data}>
@@ -111,8 +111,8 @@ const CooperationBlock = () => {
               </div>
             </div>
             </AnimationRotateScroll></BlurOnScroll>
-            <BlurOnScroll className="flex-1 flex-grow">
-            <AnimationRotateScroll className="flex-1 flex-grow">
+            <BlurOnScroll className="flex-1 flex-grow flex">
+            <AnimationRotateScroll className="flex-1 flex-grow flex">
             <div className={styles.block}>
               <Image src={Icon} width={120} height={120} alt="Icon" />
               <div className={styles.top_data}>

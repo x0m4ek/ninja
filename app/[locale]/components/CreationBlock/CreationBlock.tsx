@@ -106,7 +106,11 @@ const CreationBlock = () => {
                 </AnimatedText>
      
               </div>
+           
               <div className={styles.navigation}>
+              <div className={styles.slider_nav}>
+                
+          
                 <div className={styles.progress_wrapper}>
                   <div
                     className={styles.progress_bar}
@@ -114,7 +118,7 @@ const CreationBlock = () => {
                   />
                 </div>
                 <div ref={paginationRef} className={styles.custom_pagination}></div> 
-
+                </div>
                 <div className={styles.arrows}>
                   <ArrowButton onClick={() => swiperRef.current?.slidePrev()} /> {/* Попередній слайд */}
                   <ArrowButton onClick={() => swiperRef.current?.slideNext()} /> {/* Наступний слайд */}
