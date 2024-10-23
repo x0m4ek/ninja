@@ -31,8 +31,9 @@
         background: rgb(23,24,32);
         background: linear-gradient(180deg, rgba(23,24,32,0) 0%, rgba(23,24,32,1) 100%);
       }
-     
+      overflow: hidden;
     video {
+        
         border-radius: 32px;
         position: absolute;
         width: 100%;
@@ -47,7 +48,7 @@
         z-index: 44;
     }
     .inside_conteiner {
-   
+        transform: none !important;
    
         padding: 48px;
         display: flex;
@@ -56,23 +57,23 @@
         height: 100%;
         flex-direction: column;
         .text_data {
-            z-index: 44;
-            padding-bottom: 64px;
-            span {
+            .motto {
+
                 font-size: var(--p);
                 color: var(--primary_color);
                 font-weight: 400;
+         
             }
+            z-index: 44;
+            padding-bottom: 64px;
+      
+           
             h1 {
+                
                 font-size: var(--headline_h1);
                 color: var(--white_color);
                 line-height: 84px;
-                &::after {
-                    content: 'Ninja Digital';
-                    pointer-events:all;
-                    color: var(--primary_color); 
-            
-                }
+              
             }
             p {
                 padding-top: 24px;

@@ -5,136 +5,152 @@ import Image from "next/image";
 import Icon from "@/app/[locale]/images/qIcon.jpg";
 import Stars from "../svgs/Stars";
 import BorderedButton from "../BorderedButton/BorderedButton";
+import useFormattedTranslation from "../../utils/hooks/useFormattedTranslation";
+import AnimatedTextScroll from "../animatedComponents/AnimatedTextScroll";
+import BlurOnScroll from "../animatedComponents/SideInBlur";
+import AnimationRotate from "../animatedComponents/AnimationRotate";
+import AnimationRotateScroll from "../animatedComponents/AnimationRotateScroll";
 
 const CooperationBlock = () => {
+  const {t} = useFormattedTranslation('home');
   return (
     <>
+
       <div className={`${styles.wrapper}`}>
         <div className={`${styles.circle} circle`}></div>
         <div className={`${styles.circle} circle`}></div>
         <div className="conteiner">
+        <BlurOnScroll>
           <div className={styles.text}>
-            <h2>Варіанти співпраці</h2>
+            <AnimatedTextScroll  className="text-center">
+            <h2>{t('variants_title')}</h2></AnimatedTextScroll>
+            <AnimatedTextScroll className="text-center">
             <p>
-              Допоможемо вирішити будь-яке завдання у середовищі
-              <br /> розробки мобільних додатків
-            </p>
+              {t('variant_text')}
+            </p></AnimatedTextScroll>
           </div>
-
+          </BlurOnScroll>
           <div className={styles.blocks}>
+            <BlurOnScroll className="flex-1 flex-grow">
+            <AnimationRotateScroll className="flex-1 flex-grow">
             <div className={styles.block}>
               <Image src={Icon} width={120} height={120} alt="Icon" />
               <div className={styles.top_data}>
                 <div className={styles.package}>
                   <Stars />
-                  <p>Пакет “Команда”</p>
+                  <p>{t('package_1')}</p>
                 </div>
-                <h4>Підсилимо вашу команду</h4>
+                <h4>{t('package_1_title')}</h4>
                 <p>
-                  Допоможемо, коли вам потрібен досвід та
-                  <br /> експертиза наших фахівців з розробки
-                  <br /> додатків
+                {t('package_1_text')}
                 </p>
               </div>
               <div className={styles.options}>
                 <div className={styles.option}>
                   <Stars />
-                  <p>Інтеграція наших експертів у вашу існуючу команду</p>
+                  <p>{t('package_1_task_1')}</p>
                 </div>
                 <div className={styles.option}>
                   <Stars />
-                  <p>Швидке масштабування ресурсів під ваші потреби</p>
+                  <p>{t('package_1_task_2')}</p>
                 </div>
                 <div className={styles.option}>
                   <Stars />
-                  <p>Доступ до широкого спектру технічних навичок та досвіду</p>
+                  <p>{t('package_1_task_3')}</p>
                 </div>
                 <div className={styles.option}>
                   <Stars />
-                  <p>Гнучкі умови співпраці та термін контракту</p>
+                  <p>{t('package_1_task_4')}</p>
                 </div>
               </div>
               <div className={styles.button}>
                 <BorderedButton
-                  text="Посилити Команду"
-                  onClick={() => console.log("s")}
+                  text={t('package_1_button_text')}
+                  onClick={() => console.log("clicked")}
                 />
               </div>
             </div>
+            </AnimationRotateScroll></BlurOnScroll>
+            <BlurOnScroll className="flex-1 flex-grow">
+            <AnimationRotateScroll className="flex-1 flex-grow" isReversed>
             <div className={styles.block}>
               <Image src={Icon} width={120} height={120} alt="Icon" />
               <div className={styles.top_data}>
                 <div className={styles.package}>
                   <Stars />
-                  <p>Пакет “Продуктовий”</p>
+                  <p>{t('package_2')}</p>
                 </div>
-                <h4>Створимо новий продукт</h4>
+                <h4>{t('package_2_title')}</h4>
                 <p>
-                Реалізуємо ваш проєкт з нуля до <br />життєздатного продукту і допоможемо його<br /> розвивати, надаючи технічну підтримку
+                {t('package_2_text')}
                 </p>
               </div>
               <div className={styles.options}>
                 <div className={styles.option}>
                   <Stars />
-                  <p>Повний цикл розробки від ідеї до запуску</p>
+                  <p>{t('package_2_task_1')}</p>
                 </div>
                 <div className={styles.option}>
                   <Stars />
-                  <p>Індивідуальний дизайн та архітектура додатку</p>
+                  <p>{t('package_2_task_2')}</p>
                 </div>
                 <div className={styles.option}>
                   <Stars />
-                  <p>Інтеграція з існуючими системами та сервісами</p>
+                  <p>{t('package_2_task_3')}</p>
                 </div>
                 <div className={styles.option}>
                   <Stars />
-                  <p>Постійна технічна підтримка та оновлення</p>
+                  <p>{t('package_2_task_4')}</p>
                 </div>
               </div>
               <div className={styles.button}>
                 <BorderedButton
-                  text="Почати розробку"
-                  onClick={() => console.log("s")}
+                  text={t('package_2_button_text')}
+                  onClick={() => console.log("clicked")}
                 />
               </div>
             </div>
+            </AnimationRotateScroll></BlurOnScroll>
+            <BlurOnScroll className="flex-1 flex-grow">
+            <AnimationRotateScroll className="flex-1 flex-grow">
             <div className={styles.block}>
               <Image src={Icon} width={120} height={120} alt="Icon" />
               <div className={styles.top_data}>
                 <div className={styles.package}>
                   <Stars />
-                  <p>Whitelabel</p>
+                  <p>{t('package_3')}</p>
                 </div>
-                <h4>Трансформуємо готові<br /> рішення під вас</h4>
+                <h4>{t('package_3_title')}</h4>
                 <p>
-                Ви отримаєте ефективний інструмент на<br /> основі нашого Whitelabel, що значно <br /> зекономить вам час і фінанси — почніть працювати вже за місяць
+                {t('package_3_text')}
                 </p>
               </div>
               <div className={styles.options}>
                 <div className={styles.option}>
                   <Stars />
-                  <p>Швидкий запуск в термін від 4 тижнів</p>
+                  <p>{t('package_3_task_1')}</p>
                 </div>
                 <div className={styles.option}>
                   <Stars />
-                  <p>Економія до 80% бюджету порівняно з розробкою з нуля</p>
+                  <p>{t('package_3_task_2')}</p>
                 </div>
                 <div className={styles.option}>
                   <Stars />
-                  <p>Повна кастомізація під ваш бренд та потреби</p>
+                  <p>{t('package_3_task_3')}</p>
                 </div>
                 <div className={styles.option}>
                   <Stars />
-                  <p>Готова інфраструктура з підтвердженою надійністю</p>
+                  <p>{t('package_3_task_4')}</p>
                 </div>
               </div>
               <div className={styles.button}>
                 <BorderedButton
-                  text="Отримати Whitelabel"
-                  onClick={() => console.log("s")}
+                  text={t('package_3_button_text')}
+                  onClick={() => console.log("clicked")}
                 />
               </div>
             </div>
+            </AnimationRotateScroll></BlurOnScroll>
           </div>
         </div>
       </div>

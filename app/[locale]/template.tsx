@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { animatePageIn } from "@/animation";
+import SmoothScroll from "./components/animatedComponents/SmoothScroll";
 
 export default function Template({ children }: { children: React.ReactNode }) {
   useEffect(() => {
@@ -12,7 +13,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
     <div>
       <div
         id="transition-element"
-        className="w-[100%] h-[100%] flex  justify-center items-center bg-[#16171F] z-[99999999] fixed top-0 left-0 right-0 bottom-0 pointer-events-none"
+        className="w-[100%] h-[100%] flex  justify-center items-center bg-[#16171F] z-[9999999999999] fixed top-0 left-0 right-0 bottom-0 pointer-events-none"
       ><svg id="loader-text" width="174" height="14" viewBox="0 0 174 14" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M3.93779 13.2812H0V0.512854H4.12363L11.1878 8.1673V0.512854H15.1087V13.2812H11.2048L3.93779 5.48993V13.2812Z" fill="white"/>
       <path d="M18.084 0.512923H22.1231V13.2813H18.084V0.512923Z" fill="white"/>

@@ -1,0 +1,27 @@
+
+
+.swiper {
+    .swiper-wrapper {
+        .swiper-slide {
+            
+               
+            max-width: 380px !important;
+            height:476px ;
+        }
+    }
+}
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #353535; /* Темний колір для неактивних кружків */
+    border-radius: 50%;
+    opacity: 0.6;
+    margin: 0 5px;
+    transition: background-color 0.3s, opacity 0.3s ease;
+  
+    &.swiper-pagination-bullet-active {
+      background-color: var(--primary_color); /* Білий колір для активного кружка */
+      opacity: 1;
+    }
+  }
+

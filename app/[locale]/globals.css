@@ -203,6 +203,28 @@ body {
   background-color: #222; /* Зміна фону при наведенні */
 }
 
+.highlight {
+  color: var(--primary_color);
+}
+
+.scramble-text-container {
+  display: inline-block;
+}
+
+.scramble-char {
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.slide-in-blur {
+  opacity: 0;
+  transform: translateX(-100px);
+  filter: blur(10px);
+  transition: all 0.4s ease-out;
+}
+
+
 
 
 /* GLOBAL SCROLLBAR */

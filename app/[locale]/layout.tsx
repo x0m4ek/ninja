@@ -3,6 +3,8 @@ import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import IntlProviderCustom from './components/providers/IntlProvider';
 import "./globals.css";
+import SmoothScroll from './components/animatedComponents/SmoothScroll';
+import 'swiper/css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,7 +18,7 @@ function getBaseUrl() {
   const host = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000';
    // Дефолтно використовуємо localhost
   //  console.log('host',host)
-  return `${protocol}://ninja-dbbl.vercel.app/`;
+  return `${protocol}:${host}`;
 }
 
 // Функція для завантаження локальних повідомлень
@@ -24,7 +26,7 @@ async function loadMessages(locale: string) {
   try {
     const baseUrl = getBaseUrl();  
     const localesDir = `${baseUrl}/locales/${locale}/`;  
-    const fileNames = ['common.json', 'whitelabel.json', 'sushi.json', 'pizza.json','wok.json', 'fit.json','tracker.json']; 
+    const fileNames = ['common.json', 'whitelabel.json', 'sushi.json', 'pizza.json','wok.json', 'fit.json','tracker.json', 'home.json', 'footer.json']; 
 
     const messages: Record<string, any> = {};
 
@@ -57,7 +59,7 @@ async function loadFallbackMessages() {
   const baseUrl = getBaseUrl(); // Отримуємо базовий URL
   const fallbackLocale = 'en';
   const fallbackDir = `${baseUrl}/locales/${fallbackLocale}/`;
-  const fileNames = ['common.json', 'whitelabel.json', 'sushi.json', 'pizza.json','wok.json', 'fit.json','tracker.json']; 
+  const fileNames = ['common.json', 'whitelabel.json', 'sushi.json', 'pizza.json','wok.json', 'fit.json','tracker.json', 'footer.json']; 
 
   const fallbackMessages: Record<string, any> = {};
 
@@ -83,20 +85,29 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
+
   try {
-    // Завантажуємо повідомлення для вибраної локалі
+
     const messages = await loadMessages(params.locale);
 
     return (
+      
       <html lang={params.locale}>
+      
         <body className={`${inter.className} antialiased`} id="body">
+
           <IntlProviderCustom locale={params.locale} messages={messages}>
+            <SmoothScroll>
+          
             <Navbar />
             {children}
             <Footer />
+            </SmoothScroll>
+           
           </IntlProviderCustom>
         </body>
       </html>
+      
     );
   } catch (error) {
     console.error('Failed to load messages or render layout:', error);

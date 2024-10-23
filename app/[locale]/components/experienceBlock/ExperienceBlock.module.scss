@@ -9,7 +9,19 @@
 
     h1 {
         font-size: var(--headline_h2);
-        color: var(--white_color);
+        background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.2) 100%);
+        line-height: var(--headline_h2_line);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+        div {
+            font-size: var(--headline_h2);
+        background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.2) 100%);
+        line-height: var(--headline_h2_line);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;  
+        }
         p {
             font-size: inherit;
             background: -webkit-linear-gradient(#eee, #333);
@@ -24,7 +36,7 @@
         flex-direction: column;
         gap: 32px;
         position: relative;
-
+        max-width: 737px;
         p {
             color: var(--body_text_color);
             font-size: var(--p);

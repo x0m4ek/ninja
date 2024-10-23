@@ -11,20 +11,26 @@ import {
   DropdownMenu,
   DropdownTrigger,
 } from "@nextui-org/react";
-import { projects } from "../projectsBlock/ProjectsBlock";
+
 import ProjectBlock from "../projectBlock/ProjectBlock";
 import Localization from "../localization/Localization";
 import TransitionLink from "../Link/TransitionLink";
 import { useRouter } from "next/navigation";
 import { animatePageOut } from "@/animation";
-
+import NinjaSushi from "@/app/[locale]/images/ninja-sushi.png";
+import NinjaWok from "@/app/[locale]/images/ninja-wok.png";
+import NinjaFit from "@/app/[locale]/images/ninja-fit.png";
+import NinjaCasino from "@/app/[locale]/images/ninja-casino.png";
+import NinjaWater from "@/app/[locale]/images/ninja-water.png";
+import NinjaPizza from "@/app/[locale]/images/ninja-pizza.png";
+import useFormattedTranslation from "../../utils/hooks/useFormattedTranslation";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const timeoutId = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
   const currentLocale = pathname.split('/')[1] || "en";
   const router = useRouter();
-  
+  const {t} = useFormattedTranslation('home');
 
   // Handle hover logic for dropdown
   const handleMouseEnter = () => {
@@ -50,7 +56,44 @@ const Navbar = () => {
   
   const isActive = pathname.endsWith("whitelabel");
 
-  
+  const projects = [
+    {
+      icon: NinjaSushi,
+      title: "Ninja Sushi",
+      desc: t('ninja_sushi'),
+      url: "/sushi"
+    },
+    {
+      icon: NinjaWok,
+      title: "Ninja Wok",
+      desc: t('ninja_wok'),
+      url: "/wok"
+    },
+    {
+      icon: NinjaPizza,
+      title: "Ninja Pizza",
+      desc: t('ninja_pizza'),
+      url: "/pizza"
+    },
+    {
+      icon: NinjaFit,
+      title: "Ninja Fit",
+      desc: t('ninja_fit'),
+      url: "/fit"
+    },
+    {
+      icon: NinjaCasino,
+      title: "Ninja Casino",
+      desc: t('ninja_casino'),
+      url: "/casino"
+    },
+    {
+      icon: NinjaWater,
+      title: "Ninja Water Tracker",
+      desc: t('ninja_tracker'),
+      url: "/tracker"
+    },
+  ];
 
 
   return (

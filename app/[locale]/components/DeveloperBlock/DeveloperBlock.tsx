@@ -5,9 +5,10 @@ import Image, { StaticImageData } from 'next/image';
 type OwnProps = {
     image:StaticImageData,
     desc:string,
+    className?:string
 }
 
-const DeveloperBlock:FC<OwnProps> = ({image,desc}) => {
+const DeveloperBlock:FC<OwnProps> = ({image,desc,className}) => {
   return (
     <>
     <div className={`${styles.wrapper} border-custom`}>

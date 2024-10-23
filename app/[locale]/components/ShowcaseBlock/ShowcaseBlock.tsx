@@ -1,6 +1,7 @@
 import React, { FC, ReactNode } from "react";
 import styles from "./ShowcaseBlock.module.scss";
 import Image, { StaticImageData } from "next/image";
+import AnimatedImage from "../animatedComponents/AnimatedImage";
 
 export type Block = {
   img: StaticImageData;
@@ -28,7 +29,10 @@ const ShowcaseBlock: FC<OwnProps> = ({ title, blocks }) => {
           {blocks.map((block, index) => (
             <>
               <div className={styles.block} key={index}>
-                <Image  src={block.img} width={1000} height={1000} alt={block.title as string} />
+                <AnimatedImage
+                 imageSrc={block.img} width={1000} height={1000} alt={block.title as string}
+                />
+        
                 <p>
                     {block.title}
                 </p>

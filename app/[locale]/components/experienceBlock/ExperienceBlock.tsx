@@ -5,46 +5,61 @@ import AdvantagesBlock from "../AdvBlock/AdvantagesBlock";
 import QualityIcon from "@/app/[locale]/images/qIcon.jpg";
 import ComplexIcon from "@/app/[locale]/images/cIcon.png";
 import AIcon from "@/app/[locale]/images/AIcon.png";
+import AnimatedScrambleText from "../animatedComponents/AnimatedScramblingText";
+import GrowText from "../animatedComponents/GrowText";
+import AnimatedGrowingText from "../animatedComponents/GrowText";
+import useFormattedTranslation from "../../utils/hooks/useFormattedTranslation";
+import AnimatedBouncingText from "../animatedComponents/AnimatedBouncingText";
+import AnimationRotate from "../animatedComponents/AnimationRotate";
+import SlideInBlur from "../animatedComponents/SideInBlur";
+import AnimationRotateScroll from "../animatedComponents/AnimationRotateScroll";
 
 
 const ExperienceBlock = () => {
+  const {t,rich} = useFormattedTranslation('home');
   return (
     <>
     <div className="conteiner">
 
 
-      <div className={styles.wrapper}>
+      <div className={styles.wrapper}>  <SlideInBlur>
         <div className={styles.left_data}>
+      
+          <AnimatedGrowingText>
           <h1>
-            12 років досвіду <p>в індустрії</p>
+            {rich('years_of_experience')}
           </h1>
+          </AnimatedGrowingText>
+        
           <div className={`${styles.ninja} border-custom`}>
             <Logo />
-            <p>
-              Віддана своїй справі команда експертів, що
-              <br /> спеціалізується на розробці мобільних додатків та <br />
-              повному циклі впровадження проєктів.
-            </p>
+            <p>       {rich('years_of_experience_text')}</p>
+       
           </div>
-        </div>
+        </div></SlideInBlur>
+        <SlideInBlur>
+        
         <div className={styles.right_data}>
+        <AnimationRotateScroll>
           <AdvantagesBlock
             icon={QualityIcon}
-            title="Розробляємо продукти найвищої якості"
-            desc="Використовуємо глибоке знання ринку для створення інноваційних рішень, що перевершують очікування користувачів"
-          />
+            title={t('block_title_1')}
+            desc={t('block_text_1')}
+          />     </AnimationRotateScroll>
+             <AnimationRotateScroll>
           <AdvantagesBlock
             icon={ComplexIcon}
-            title="Забезпечуємо комплексні рішення "
-            desc="Над вашим проєктом працюють експерти в створенні високонавантажених CRM-систем, бекенд-сервісів, вебсайтів"
-          />
+            title={t('block_title_2')}
+            desc={t('block_text_2')}
+          /></AnimationRotateScroll>
+            <AnimationRotateScroll>
           <AdvantagesBlock
             icon={AIcon}
-            title="Запустили додатки
-у різних ринкових нішах"
-            desc="Використовуємо в роботі над проєктами клієнтів багатий досвід, який охоплює різні галузі, включаючи азартні ігри"
+            title={t('block_title_3')}
+            desc={t('block_text_3')}
           />
-        </div>
+          </AnimationRotateScroll>
+        </div></SlideInBlur>
       </div>
       </div>
     </>
