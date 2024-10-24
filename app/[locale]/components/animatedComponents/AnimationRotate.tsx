@@ -3,9 +3,10 @@ import gsap from "gsap";
 
 type AnimatedBlockProps = {
   children: React.ReactNode;
+  className?:string,
 };
 
-const AnimationRotate: React.FC<AnimatedBlockProps> = ({ children }) => {
+const AnimationRotate: React.FC<AnimatedBlockProps> = ({ children,className }) => {
   const blockRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const AnimationRotate: React.FC<AnimatedBlockProps> = ({ children }) => {
   }, []);
 
   return (
-    <div ref={blockRef}>
+    <div ref={blockRef} className={className}>
       {children}
     </div>
   );

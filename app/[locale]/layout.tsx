@@ -26,7 +26,7 @@ async function loadMessages(locale: string) {
   try {
     const baseUrl = getBaseUrl();  
     const localesDir = `${baseUrl}/locales/${locale}/`;  
-    const fileNames = ['common.json', 'whitelabel.json', 'sushi.json', 'pizza.json','wok.json', 'fit.json','tracker.json', 'home.json', 'footer.json']; 
+    const fileNames = ['common.json', 'whitelabel.json', 'sushi.json', 'pizza.json','wok.json', 'fit.json','tracker.json', 'home.json', 'footer.json', 'header.json']; 
 
     const messages: Record<string, any> = {};
 
@@ -59,7 +59,7 @@ async function loadFallbackMessages() {
   const baseUrl = getBaseUrl(); // Отримуємо базовий URL
   const fallbackLocale = 'en';
   const fallbackDir = `${baseUrl}/locales/${fallbackLocale}/`;
-  const fileNames = ['common.json', 'whitelabel.json', 'sushi.json', 'pizza.json','wok.json', 'fit.json','tracker.json', 'footer.json']; 
+  const fileNames = ['common.json', 'whitelabel.json', 'sushi.json', 'pizza.json','wok.json', 'fit.json','tracker.json', 'footer.json', 'header.json']; 
 
   const fallbackMessages: Record<string, any> = {};
 

@@ -19,6 +19,9 @@ import 'swiper/css/navigation';  // Додаємо стилі для стріл�
 import { Pagination, Navigation } from 'swiper/modules';
 import "./CreationBlock.scss";
 import AnimatedText from "../animatedComponents/AnimatedText";
+import AnimatedOpacityText from "../animatedComponents/AnimatedOpacityText";
+import AnimateParagraph from "../animatedComponents/AnimateParagraph";
+import FadeInScroll from "../animatedComponents/FadeInScroll";
 
 const CreationBlock = () => {
   const { rich, t } = useFormattedTranslation("home");
@@ -54,18 +57,18 @@ const CreationBlock = () => {
     <>
       <div className="conteiner">
         <div className={styles.wrapper}>
-          <AnimationRotateScroll isReversed className={styles.metadata}>
-            <BlurOnScroll>
+          <FadeInScroll  className={styles.metadata}>
+            
               <div className={styles.text_data}>
-                <AnimatedTextScroll>
+                <AnimatedOpacityText>
                   <h2>{rich('creation_title')}</h2>
-                </AnimatedTextScroll>
-                <AnimatedTextScroll>
+                </AnimatedOpacityText>
+                <AnimateParagraph>
                   <p>
-                  {t('creation_text')}
+                  {rich('creation_text')}
                   </p>
     
-                </AnimatedTextScroll>
+                </AnimateParagraph>
               </div>
 
               <div className={styles.button}>
@@ -74,36 +77,39 @@ const CreationBlock = () => {
                   onClick={() => console.log()}
                 />
               </div>
-            </BlurOnScroll>
-          </AnimationRotateScroll>
+    
+          </FadeInScroll>
 
           <div className={styles.blocks}>
             {advs.map((adv, index) => (
-              <BlurOnScroll key={index} className="flex-1 flex-grow flex">
-                <AnimationRotateScroll className="flex-1 flex-grow h-[100%] flex">
+          
+                <FadeInScroll className="flex-1 flex-grow flex">
                   <div className={`${styles.block} border-custom`}>
                     <div className={styles.number}>0{index + 1}</div>
                     <p>{adv}</p>
                   </div>
-                </AnimationRotateScroll>
-              </BlurOnScroll>
+          
+              </FadeInScroll>
             ))}
           </div>
         </div>
 
         {/* Секція слайдера */}
-        <BlurOnScroll>
+        <FadeInScroll>
         <div className={styles.command}>
           <div className={styles.content}>
             <div className={styles.nav}>
               <div className={styles.text}>
-                <AnimatedTextScroll>
+                <AnimatedOpacityText>
                 <h2>{rich('team_title')}</h2>
-                </AnimatedTextScroll>
-                <AnimatedText startColor="#fff" color="rgba(154, 158, 167, 0.5)">
-                {rich('team_text')}
+                </AnimatedOpacityText>
+                <AnimateParagraph>
+              <p>
+              {rich('team_text')}
+              </p></AnimateParagraph>
+                
 
-                </AnimatedText>
+             
      
               </div>
            
@@ -190,7 +196,7 @@ const CreationBlock = () => {
             </div>
           </div>
         </div>
-        </BlurOnScroll>
+        </FadeInScroll>
       </div>
     </>
   );

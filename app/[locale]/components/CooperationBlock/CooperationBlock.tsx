@@ -10,6 +10,9 @@ import AnimatedTextScroll from "../animatedComponents/AnimatedTextScroll";
 import BlurOnScroll from "../animatedComponents/SideInBlur";
 import AnimationRotate from "../animatedComponents/AnimationRotate";
 import AnimationRotateScroll from "../animatedComponents/AnimationRotateScroll";
+import AnimatedOpacityText from "../animatedComponents/AnimatedOpacityText";
+import AnimateParagraph from "../animatedComponents/AnimateParagraph";
+import FadeInScroll from "../animatedComponents/FadeInScroll";
 
 const CooperationBlock = () => {
   const {t} = useFormattedTranslation('home');
@@ -20,20 +23,20 @@ const CooperationBlock = () => {
         <div className={`${styles.circle} circle`}></div>
         <div className={`${styles.circle} circle`}></div>
         <div className="conteiner">
-        <BlurOnScroll>
+
           <div className={styles.text}>
-            <AnimatedTextScroll  className="text-center">
-            <h2>{t('variants_title')}</h2></AnimatedTextScroll>
-            <AnimatedTextScroll className="text-center">
+            <AnimatedOpacityText  className="text-center">
+            <h2>{t('variants_title')}</h2></AnimatedOpacityText>
+            <AnimateParagraph className="text-center">
             <p>
               {t('variant_text')}
-            </p></AnimatedTextScroll>
+            </p></AnimateParagraph>
           </div>
-          </BlurOnScroll>
+
           <div className={styles.blocks}>
-            <BlurOnScroll className="flex-1 flex-grow flex">
-            <AnimationRotateScroll className="flex-1 flex-grow flex">
-            <div className={styles.block}>
+    
+            <FadeInScroll className={styles.block}>
+            
               <Image src={Icon} width={120} height={120} alt="Icon" />
               <div className={styles.top_data}>
                 <div className={styles.package}>
@@ -68,12 +71,11 @@ const CooperationBlock = () => {
                   text={t('package_1_button_text')}
                   onClick={() => console.log("clicked")}
                 />
-              </div>
+         
             </div>
-            </AnimationRotateScroll></BlurOnScroll>
-            <BlurOnScroll className="flex-1 flex-grow flex">
-            <AnimationRotateScroll className="flex-1 flex-grow flex" isReversed>
-            <div className={styles.block}>
+            </FadeInScroll>
+            <FadeInScroll className={styles.block}>
+            
               <Image src={Icon} width={120} height={120} alt="Icon" />
               <div className={styles.top_data}>
                 <div className={styles.package}>
@@ -109,11 +111,10 @@ const CooperationBlock = () => {
                   onClick={() => console.log("clicked")}
                 />
               </div>
-            </div>
-            </AnimationRotateScroll></BlurOnScroll>
-            <BlurOnScroll className="flex-1 flex-grow flex">
-            <AnimationRotateScroll className="flex-1 flex-grow flex">
-            <div className={styles.block}>
+            
+            </FadeInScroll>
+            <FadeInScroll className={styles.block}>
+       
               <Image src={Icon} width={120} height={120} alt="Icon" />
               <div className={styles.top_data}>
                 <div className={styles.package}>
@@ -149,8 +150,8 @@ const CooperationBlock = () => {
                   onClick={() => console.log("clicked")}
                 />
               </div>
-            </div>
-            </AnimationRotateScroll></BlurOnScroll>
+       
+            </FadeInScroll>
           </div>
         </div>
       </div>

@@ -9,6 +9,8 @@ import AnimatedGrowingText from "../animatedComponents/GrowText";
 import useFormattedTranslation from "../../utils/hooks/useFormattedTranslation";
 import SlideInBlur from "../animatedComponents/SideInBlur";
 import AnimationRotateScroll from "../animatedComponents/AnimationRotateScroll";
+import AnimatedOpacityText from "../animatedComponents/AnimatedOpacityText";
+import FadeInScroll from "../animatedComponents/FadeInScroll";
 
 
 const ExperienceBlock = () => {
@@ -18,44 +20,44 @@ const ExperienceBlock = () => {
     <div className="conteiner">
 
 
-      <div className={styles.wrapper}>  <SlideInBlur>
+      <div className={styles.wrapper}>  
         <div className={styles.left_data}>
       
-          <AnimatedGrowingText>
+          <AnimatedOpacityText>
           <h1>
             {rich('years_of_experience')}
           </h1>
-          </AnimatedGrowingText>
-        
+          </AnimatedOpacityText>
+     
           <div className={`${styles.ninja} border-custom`}>
             <Logo />
             <p>       {rich('years_of_experience_text')}</p>
        
-          </div>
-        </div></SlideInBlur>
-        <SlideInBlur>
+          </div>        
         
+        </div>
+
         <div className={styles.right_data}>
-        <AnimationRotateScroll>
+        <FadeInScroll>
           <AdvantagesBlock
             icon={QualityIcon}
             title={t('block_title_1')}
             desc={t('block_text_1')}
-          />     </AnimationRotateScroll>
-             <AnimationRotateScroll>
+          />     </FadeInScroll>
+             <FadeInScroll>
           <AdvantagesBlock
             icon={ComplexIcon}
             title={t('block_title_2')}
             desc={t('block_text_2')}
-          /></AnimationRotateScroll>
-            <AnimationRotateScroll>
+          /></FadeInScroll>
+            <FadeInScroll>
           <AdvantagesBlock
             icon={AIcon}
             title={t('block_title_3')}
             desc={t('block_text_3')}
           />
-          </AnimationRotateScroll>
-        </div></SlideInBlur>
+          </FadeInScroll>
+        </div>
       </div>
       </div>
     </>

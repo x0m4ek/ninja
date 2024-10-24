@@ -3,19 +3,19 @@
     position: relative;
 
 }
-.projects_wrapper::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 16px;
-    pointer-events: none; /* Дозволяє кліки і взаємодію з іншими елементами через псевдоелемент */
-    // background: linear-gradient(180deg, rgba(18, 20, 27, 0) 0%, #12141B 100%);
+// .projects_wrapper::before {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     border-radius: 16px;
+//     pointer-events: none; /* Дозволяє кліки і взаємодію з іншими елементами через псевдоелемент */
+//     background: linear-gradient(180deg, rgba(18, 20, 27, 0) 0%, #12141B 100%);
 
-    z-index: 1; /* Позаду основного вмісту */
-}
+//     z-index: 1; /* Позаду основного вмісту */
+// }
 .projects_list {
     overflow-y: auto;
     width: 100%;
@@ -27,7 +27,32 @@
     gap: 16px;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
-    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 210px; // Висота градієнта
+        background: linear-gradient(0deg, rgba(18, 20, 27, 0) 0%, #12141B 100%);
+        pointer-events: none; // Дозволяє кліки через псевдоелемент
+        z-index: 1; // Щоб затемнення було вище за контент
+      }
+    
+      // Нижнє затемнення
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 210px; // Висота градієнта
+        background: linear-gradient(180deg, rgba(18, 20, 27, 0) 0%, #12141B 100%);
+        pointer-events: none; // Дозволяє кліки через псевдоелемент
+        z-index: 0; // Щоб затемнення було вище за контент
+      }
+
 
     &::-webkit-scrollbar { 
         display: none;  /* Safari and Chrome */
@@ -37,6 +62,7 @@
 
 @media screen and (max-width:1024px) {
     .projects_list {
+        overflow: initial;
         flex-wrap: wrap;
     }
 }

@@ -16,120 +16,112 @@ import { useRouter } from "next/navigation";
 import useFormattedTranslation from "../../utils/hooks/useFormattedTranslation";
 import AnimatedProductBlock from "../animatedComponents/AnimatedProductBlock";
 import BlurOnScroll from "../animatedComponents/SideInBlur";
+
 const ProductsFilter = () => {
   const pathname = usePathname();
-  const currentLocale = pathname.split('/')[1] || "en";
+  const currentLocale = pathname.split("/")[1] || "en";
   const router = useRouter();
-  const {rich,t} = useFormattedTranslation("home");
-  const [filterSelected, setFilterSelected] = useState<{
-    [key: string]: boolean;
-  }>({
-    ecomerce: true,
-    health: false,
-    gambling: false,
-  });
+  const { rich, t } = useFormattedTranslation("home");
+
+  const [filterSelected, setFilterSelected] = useState<string>("ecomerce");
 
   const handleFilterClick = (filter: string) => {
-    const activeFilters = Object.values(filterSelected).filter(
-      (selected) => selected
-    ).length;
-    if (filterSelected[filter] && activeFilters > 1) {
-      setFilterSelected((prev) => ({ ...prev, [filter]: !prev[filter] }));
-    } else if (!filterSelected[filter]) {
-      setFilterSelected((prev) => ({ ...prev, [filter]: true }));
-    }
+    setFilterSelected(filter);
   };
 
   const products = [
     {
       title: "Ninja Sushi",
-      desc:t('filter_block_sushi'),
+      desc: t("filter_block_sushi"),
       hoverImage: Hover1,
       category: "ecomerce",
-      mobileImage:Product4,
-      url:"/sushi"
+      mobileImage: Product4,
+      url: "/sushi",
     },
     {
       title: "Ninja Wok",
-      desc:t('filter_block_wok'),
+      desc: t("filter_block_wok"),
       hoverImage: Hover2,
       category: "ecomerce",
-      mobileImage:Product4,
-      url:"/wok"
+      mobileImage: Product4,
+      url: "/wok",
     },
     {
       title: "Ninja Pizza",
-      desc:t('filter_block_pizza'),
+      desc: t("filter_block_pizza"),
       hoverImage: Hover3,
       category: "ecomerce",
-      mobileImage:Product4,
-      url:"/pizza"
+      mobileImage: Product4,
+      url: "/pizza",
     },
     {
       title: "Ninja Fit",
-      desc:t('filter_block_fit'),
+      desc: t("filter_block_fit"),
       hoverImage: Hover4,
       category: "health",
-      mobileImage:Product4,
-      url:"/fit"
+      mobileImage: Product4,
+      url: "/fit",
     },
     {
       title: "Ninja Water Tracker",
-      t:t('filter_block_tracker'),
+      desc: t("filter_block_tracker"),
       hoverImage: Hover5,
       category: "health",
-      mobileImage:Product4,
-      url:"/tracker"
+      mobileImage: Product4,
+      url: "/tracker",
     },
     {
       title: "Casino & Sports App",
-      t:t('filter_block_casino'),
+      desc: t("filter_block_casino"),
       hoverImage: Hover6,
       category: "gambling",
-      mobileImage:Product4,
-      url:"/casino"
+      mobileImage: Product4,
+      url: "/casino",
     },
   ];
 
-  const filteredProducts = products.filter((product) =>
-    Object.entries(filterSelected).some(
-      ([key, value]) => value && product.category === key
-    )
+  const filteredProducts = products.filter(
+    (product) => product.category === filterSelected
   );
 
   return (
     <>
-      <div className={styles.wrapper}>         <BlurOnScroll>
-        <div className={styles.filters}>
-          <FilterButton
-            text="E-Commerce"
-            isSelected={filterSelected.ecomerce}
-            onClick={() => handleFilterClick("ecomerce")}
-          />
-          <FilterButton
-            text="Health & Fitness"
-            isSelected={filterSelected.health}
-            onClick={() => handleFilterClick("health")}
-          />
-          <FilterButton
-            text="Gambling"
-            isSelected={filterSelected.gambling}
-            onClick={() => handleFilterClick("gambling")}
-          />
-        </div>      </BlurOnScroll>
+      <div className={styles.wrapper}>
+        <BlurOnScroll>
+          <div className={styles.filters}>
+            <FilterButton
+              text="E-Commerce"
+              isSelected={filterSelected === "ecomerce"}
+              onClick={() => handleFilterClick("ecomerce")}
+            />
+            <FilterButton
+              text="Health & Fitness"
+              isSelected={filterSelected === "health"}
+              onClick={() => handleFilterClick("health")}
+            />
+            <FilterButton
+              text="Gambling"
+              isSelected={filterSelected === "gambling"}
+              onClick={() => handleFilterClick("gambling")}
+            />
+          </div>
+        </BlurOnScroll>
         <div className={styles.filtered_products}>
           {filteredProducts.map((product, index) => (
-            <BlurOnScroll>
-         <AnimatedProductBlock key={index} isReversed={index % 2 === 1}>
-            <ProductBlock
-              onClick={() =>animatePageOut(`/${currentLocale}/${product.url}`,router)}
-              key={index}
-              title={product.title}
-              desc={product.desc!}
-              hoverImage={product.hoverImage}
-              mobileImage={product.mobileImage}
-            />
-            </AnimatedProductBlock></BlurOnScroll>
+            <BlurOnScroll key={index}>
+              <AnimatedProductBlock isReversed={index % 2 === 1}>
+                <ProductBlock
+                  onClick={() =>
+                    animatePageOut(`/${currentLocale}/${product.url}`, router)
+                  }
+                  key={index}
+                  title={product.title}
+                  desc={product.desc!}
+                  hoverImage={product.hoverImage}
+                  mobileImage={product.mobileImage}
+                />
+              </AnimatedProductBlock>
+            </BlurOnScroll>
           ))}
         </div>
       </div>

@@ -14,6 +14,9 @@ import { usePathname } from 'next/navigation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import AnimatedTextScroll from '../animatedComponents/AnimatedTextScroll';
+import AnimatedOpacityText from '../animatedComponents/AnimatedOpacityText';
+import FadeInScroll from '../animatedComponents/FadeInScroll';
+import AnimateParagraph from '../animatedComponents/AnimateParagraph';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,44 +25,17 @@ const Footer = () => {
   const pathname = usePathname();
   const currentLocale = pathname.split('/')[1] || 'en';
 
-  const footerRef = useRef<HTMLDivElement>(null);
-
-  // Анімація при скролі до футера
-  useEffect(() => {
-    const footerElement = footerRef.current;
-
-    if (footerElement) {
-      gsap.fromTo(
-        footerElement,
-        {
-          scale: 0.95, // Початковий скейл
-          autoAlpha: 0, // Початково приховано
-        },
-        {
-          scale: 1, // Повернення до нормального розміру
-          autoAlpha: 1, // Плавна поява
-          duration: 1.5,
-          ease: 'power4.out',
-          scrollTrigger: {
-            trigger: footerElement,
-            start: 'top 90%', // Анімація починається, коли футер в 90% видимості
-            end: 'bottom 80%',
-            scrub: true, // Анімація пов'язана зі скролом
-          },
-        }
-      );
-    }
-  }, []);
 
   return (
     <>
-      <div ref={footerRef} className={styles.wrapper_footer}>
+        <AnimateParagraph>
+        <div  className={styles.wrapper_footer}>
         <div className={`${styles.circle} circle`}></div>
         <div className={styles.footer_content}>
           <div className={styles.left}>
             <div className={styles.slogan}>
-                <AnimatedTextScroll>
-              <h2>{rich('motto')}</h2></AnimatedTextScroll>
+                <AnimatedOpacityText>
+              <h2>{rich('motto')}</h2></AnimatedOpacityText>
             </div>
             <div className={styles.columns}>
               <div className={styles.col}>
@@ -113,7 +89,7 @@ const Footer = () => {
             Design by: <p>Tresor Tech</p>
           </span>
         </div>
-      </div>
+      </div></AnimateParagraph>
     </>
   );
 };

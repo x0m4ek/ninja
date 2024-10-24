@@ -68,9 +68,9 @@ const projects: Project[] = [
 
   return (
     <div className={styles.projects_wrapper}>
-      <div className={styles.projects_list}>
+      <div className={styles.projects_list} data-lenis-prevent="">
         {projects.map((project, index) => (
-          <AnimationRotate key={index}>
+          <AnimationRotate key={index} className='flex-grow flex'>
             <ProjectBlock
               icon={project.icon}
               title={project.title}

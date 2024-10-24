@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import styles from "./AdvantagesBlock.module.scss";
 import Image, { StaticImageData } from 'next/image';
-
+import AnimateParagraph from '../animatedComponents/AnimateParagraph';
+import AnimatedOpacityText from "../animatedComponents/AnimatedOpacityText"
 type OwnProps = {
     icon?:StaticImageData,
     title:string,
@@ -18,8 +19,11 @@ const AdvantagesBlock:FC<OwnProps> = ({icon, title,desc, withNumber = false,numb
           {withNumber ? <><div className={styles.number}>{number}</div></> :   <Image src={icon!} width={128} height={128}  alt="Icon" objectFit='cover'/> }
          
            <div className={styles.text_data}>
+            <AnimateParagraph>
            <h3>{title}</h3>
-           <p>{desc}</p>
+           </AnimateParagraph>
+           <AnimateParagraph><p>{desc}</p></AnimateParagraph>
+
            </div>
         
         </div>

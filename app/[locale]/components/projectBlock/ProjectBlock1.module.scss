@@ -39,7 +39,6 @@
     }
     .icon {
         z-index: 2;
-        align-self: flex-start;
         img {
             width: 64px;
             height: 61px;
@@ -78,10 +77,3 @@
     }
 }
 
-@media screen and (max-width:445px) {
-    .wrapper_block {
-        flex-direction: column;
-        min-width: 250px;
-        max-width: 250px !important;
-    }
-}
